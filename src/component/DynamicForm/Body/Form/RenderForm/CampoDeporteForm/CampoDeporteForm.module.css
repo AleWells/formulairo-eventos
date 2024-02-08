@@ -1,0 +1,32 @@
+.campoDeporte{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    width: 100%;
+    margin: 0;
+}
+.bodyCampoDeporte{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    margin: 0;
+}
+
+
+@media(max-width:1000px){
+    
+    .bodyCampoDeporte{
+        width: 90%;
+        padding: 0;
+    }
+   .campoDeporte{
+    padding: 0;
+   }
+}

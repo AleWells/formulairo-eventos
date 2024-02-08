@@ -1,0 +1,22 @@
+/* ItemForm.module.css */
+.itemformcontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+  }
+  
+
+  
+  .textfield {
+    width: 100%;
+  }
+  
+  .selectfield {
+    width: 100%;
+  }
+  
+  .datefield {
+    width: 100%;
+  }
+

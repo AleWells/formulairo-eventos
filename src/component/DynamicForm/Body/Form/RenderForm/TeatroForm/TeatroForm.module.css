@@ -1,0 +1,89 @@
+.teatro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    width: 100%;
+    margin: 0;
+    
+}
+.sobreEscenario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px ; 
+}
+.bajoEscenario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.bodyTeatro{
+    width: 50%;
+}
+.limpieza{
+    
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 10px;
+margin-top: 10px;
+margin-bottom: 10px;    
+}
+.padresAlumnos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;  
+}
+.items{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px; 
+}
+@media(max-width:1000px){
+    .bodyTeatro{
+        width: 90%;
+        
+    }
+    .teatro{
+        padding: 0;
+    }
+  }
+  @media(max-width:900px){
+    .bodyTeatro{
+        width: 90%;
+        
+    }
+    .teatro{
+        padding: 0;
+    }
+    .items{
+        grid-template-columns: 1fr;
+    }
+  }
+  
+  @media(max-width:500px){
+    .padresAlumnos{
+        grid-template-columns: 1fr ;
+    }
+  }
+
+@media(max-width:360px){
+    .limpieza{
+    
+        grid-template-columns: 1fr ;
+       
+            
+        }
+}

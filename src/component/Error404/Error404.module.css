@@ -1,0 +1,14 @@
+html,body{
+    width: 100%;
+    height: 100vh;
+}
+.container{
+    display: flex !important;
+    width: 100%;
+    height: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+.box{
+    text-align: center;
+}

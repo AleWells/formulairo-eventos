@@ -1,0 +1,22 @@
+/* En RenderCompleteForm.module.css */
+.render {
+ margin-top: 20px;
+ margin-left: 35%;
+  }
+
+@media(max-width:800px){
+ .render{
+  margin-left: 30%;
+ }
+}
+@media(max-width:600px){
+  .render{
+   margin-left: 25%;
+  }
+ }
+
+ @media(max-width:500px){
+  .render{
+   margin-left: 10%;
+  }
+ }

@@ -1,0 +1,13 @@
+.login{
+    max-width: 300px;
+   margin-top: 15%;
+}
+.login label{
+    font-size: 0.8rem;
+}
+.sendContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
