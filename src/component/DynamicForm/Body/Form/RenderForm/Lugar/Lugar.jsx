@@ -14,6 +14,7 @@ function Lugar (){
 
         <Typography variant='h6' textAlign='center'>¡Bienvenidos!</Typography>
         <Typography  variant='h6' textAlign='center'>Porfavor, selecciona donde vas  a realizar el vento.</Typography>
+        <Box marginTop='50px' marginBottom='50px'>
         <TextField
         select
         name="lugar"
@@ -30,6 +31,7 @@ function Lugar (){
         <MenuItem value="CampoDeporte">Campo de Deporte</MenuItem>
         <MenuItem value="Otro">Otro</MenuItem>
       </TextField>
+        </Box>
     </Box>
 }
 
