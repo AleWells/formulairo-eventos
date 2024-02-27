@@ -3,9 +3,8 @@ import io from "socket.io-client";
 import {alertSetFormOk,alertDeleteFormPending,alertSendFormOk} from './services.js'
 let socket;
 const apiUrlDeploy = import.meta.env.VITE_URL_API_DEPLOY;
-const apiUrlDev = "http://localhost:4001/";
+const apiUrlDev = import.meta.env.VITE_URL_API_DEV;
 const apiUrl = import.meta.env.PROD ? apiUrlDeploy : apiUrlDev;
-
 
 // inicia socket con el usuario en el evento join
 export const initSocket = (user)=>{
