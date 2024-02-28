@@ -27,6 +27,9 @@ export default function HomeForm() {
   ];
   return (
     <Box className={styles.home}>
+      <Box>
+        <Typography variant='h6'>{lugares.find(obj=>obj.name===formData.home.lugar).label}</Typography>
+      </Box>
      <TextField
       id='email'
       type='email'
