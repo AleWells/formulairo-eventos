@@ -52,31 +52,13 @@ const {lugar} = useSelector(state=>state.data.form.home)
         {currentSection === 'Lugar' && <Lugar handle={handleChangeSection}/>} 
 
 
-     {/* <Box className={styles.section}>
-     {lugar==="Teatro"&& currentSection === "Home"&&
-        <Button variant='outlined' onClick={()=>{handleChangeSection("Teatro")}}>Teatro</Button>
-        }
-         {lugar==="Tinglado" && currentSection === "Home"&&
-        <Button variant='outlined' onClick={()=>{handleChangeSection("Tinglado")}}>Tinglado</Button>
-        }
-         {lugar==="CampoDeporte"&& currentSection === "Home"&&
-        <Button variant='outlined' onClick={()=>{handleChangeSection("CampoDeporte")}}>Campo de Deporte</Button>
-        }
-         {lugar==="Otro"&& currentSection === "Home"&&
-        <Button variant='outlined' onClick={()=>{handleChangeSection("Otro")}}>Otro</Button>
-
-        }
-     </Box> */}
-{/*         
-      {currentSection === "Home" &&
+        
+      {currentSection !=="Home" && currentSection !=="Lugar" &&
        <Box sx={{ display: 'flex', justifyContent: 'center' ,margin:'20px'}}>
        <Button type='submit' variant='contained'>Enviar</Button>
-     </Box> } */}
+     </Box> }
 
-     {/* {currentSection !== "Home" && 
-      <Box sx={{ display: 'flex', justifyContent: 'center' ,margin:'20px'}}>
-      <Button variant='contained' onClick={()=>{handleChangeSection("Home")}}>Guardar</Button>
-    </Box>} */}
+     
     </Box>
   );
 }
