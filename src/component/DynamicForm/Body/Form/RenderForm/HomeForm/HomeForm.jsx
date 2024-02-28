@@ -5,7 +5,7 @@ import styles from './HomeForm.module.css'
 export default function HomeForm({handle}) {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.data.form);
-
+  const datosHome = useSelector((state)=>state.data.form.home)
   const handleChange = (e) => {
     const { value, id } = e.target;
     dispatch(updateForm({ ...formData, home: {...formData.home,[id]: value } }));
@@ -24,7 +24,26 @@ export default function HomeForm({handle}) {
     { name: "CampoDeporte", label: "Campo de Deporte" },
     { name: "Otro", label: "Otro" },
   ];
-  return (
+
+  const  todosLosCamposLlenos  = (objeto) => {
+    // Verifica si el objeto recibido no es nulo ni indefinido
+    if (objeto && typeof objeto === 'object') {
+      // Verifica si todas las propiedades requeridas tienen algún valor
+      if (
+        objeto.lugar &&
+        objeto.email &&
+        objeto.nombreCompleto &&
+        objeto.nombreEvento &&
+        objeto.sector &&
+        objeto.fecha &&
+        objeto.hora
+      ) {
+        return true; // Si todas las propiedades tienen algún valor, retorna true
+      }
+    }
+    return false; // Si alguna propiedad está ausente o tiene un valor falsy, retorna false
+  }
+return (
     <Box className={styles.home}>
       <Box>
         <Typography variant='h6'>{lugares.find(obj=>obj.name===formData.home.lugar).label}</Typography>
@@ -100,9 +119,9 @@ label='Nombre del Evento'
     />
     </Box>
 
-      <Box >
+    {todosLosCamposLlenos(datosHome) && <Box >
         <Button variant='outlined' onClick={handleButton}>Siguiente</Button>
-      </Box>
+      </Box>}
 
 
    
