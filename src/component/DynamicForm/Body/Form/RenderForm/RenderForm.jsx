@@ -18,7 +18,7 @@ export default function RenderForm({handleClose}) {
 const {lugar} = useSelector(state=>state.data.form.home)
  const {form,user} = useSelector(state=>state.data)
  const { id } = useParams();
-  const [currentSection, setCurrentSection] = useState("Home"); // Valor inicial es "Home"
+  const [currentSection, setCurrentSection] = useState("Lugar"); // Valor inicial es "Home"
 
   // Función para cambiar la sección actual
   const handleChangeSection = (sectionName) => {
@@ -49,10 +49,10 @@ const {lugar} = useSelector(state=>state.data.form.home)
         {currentSection === "Tinglado" && <TingladoForm />}
         {currentSection === "CampoDeporte" && <CampoDeporteForm/>}
         {currentSection === "Otro" && <Otros/>}
-        {currentSection === 'Lugar' && <Lugar/>} 
+        {currentSection === 'Lugar' && <Lugar handle={handleChangeSection}/>} 
 
 
-     <Box className={styles.section}>
+     {/* <Box className={styles.section}>
      {lugar==="Teatro"&& currentSection === "Home"&&
         <Button variant='outlined' onClick={()=>{handleChangeSection("Teatro")}}>Teatro</Button>
         }
@@ -66,16 +66,17 @@ const {lugar} = useSelector(state=>state.data.form.home)
         <Button variant='outlined' onClick={()=>{handleChangeSection("Otro")}}>Otro</Button>
 
         }
-     </Box>
-        
+     </Box> */}
+{/*         
       {currentSection === "Home" &&
        <Box sx={{ display: 'flex', justifyContent: 'center' ,margin:'20px'}}>
        <Button type='submit' variant='contained'>Enviar</Button>
-     </Box> }
-     {currentSection !== "Home" && 
+     </Box> } */}
+
+     {/* {currentSection !== "Home" && 
       <Box sx={{ display: 'flex', justifyContent: 'center' ,margin:'20px'}}>
       <Button variant='contained' onClick={()=>{handleChangeSection("Home")}}>Guardar</Button>
-    </Box>}
+    </Box>} */}
     </Box>
   );
 }

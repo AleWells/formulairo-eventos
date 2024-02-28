@@ -99,7 +99,7 @@ label='Nombre del Evento'
     </Box>
 
 
-      <TextField
+      {/* <TextField
         select
         name="lugar"
         label='Lugar'
@@ -115,7 +115,7 @@ label='Nombre del Evento'
         <MenuItem value="Tinglado">Tinglado</MenuItem>
         <MenuItem value="CampoDeporte">Campo de Deporte</MenuItem>
         <MenuItem value="Otro">Otro</MenuItem>
-      </TextField>
+      </TextField> */}
 
 
     </Box>
