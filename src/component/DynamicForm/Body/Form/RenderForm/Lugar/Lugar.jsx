@@ -34,7 +34,10 @@ function Lugar ({handle}){
         <MenuItem value="Otro">Otro</MenuItem>
       </TextField>
         </Box>
-       {formData.home.lugar && <Button variant='contained' onClick={handleChangeSection}>Siguiente</Button>}
+       
+        {formData.home.lugar && <Button variant='outlined' onClick={handleChangeSection} >Siguiente</Button>}
+        
+      
     </Box>
 }
 

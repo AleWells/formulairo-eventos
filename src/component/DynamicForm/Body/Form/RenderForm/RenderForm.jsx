@@ -44,7 +44,7 @@ const {lugar} = useSelector(state=>state.data.form.home)
       </Box>
 
         {/* Mostrar el componente correspondiente según la sección actual */}
-        {currentSection === "Home" && <HomeForm />}
+        {currentSection === "Home" && <HomeForm  handle={handleChangeSection} />}
         {currentSection === "Teatro" && <TeatroForm />}
         {currentSection === "Tinglado" && <TingladoForm />}
         {currentSection === "CampoDeporte" && <CampoDeporteForm/>}

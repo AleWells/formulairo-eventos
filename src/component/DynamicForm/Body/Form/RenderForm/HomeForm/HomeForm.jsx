@@ -1,8 +1,8 @@
-import { Box, FormControlLabel, FormGroup, MenuItem, TextField, Typography,Checkbox} from "@mui/material";
+import { Box, FormControlLabel, FormGroup, MenuItem, TextField, Typography,Checkbox, Button} from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { updateForm } from "../../../../../../redux/slice.js";
 import styles from './HomeForm.module.css'
-export default function HomeForm() {
+export default function HomeForm({handle}) {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.data.form);
 
@@ -14,9 +14,8 @@ export default function HomeForm() {
     const {value,name} = e.target;
     dispatch(updateForm({ ...formData, home: {...formData.home,[name]: value } }));
   }
-  const handleChangeSelect2 = (e)=>{
-    const {value,name} = e.target;
-    dispatch(updateForm({ ...formData, home: {...formData.home,[name]: value } }));
+  const handleButton = ()=>{
+    handle(formData.home.lugar);
   }
 
   const lugares = [
@@ -101,24 +100,12 @@ label='Nombre del Evento'
     />
     </Box>
 
+      <Box >
+        <Button variant='outlined' onClick={handleButton}>Siguiente</Button>
+      </Box>
 
-      {/* <TextField
-        select
-        name="lugar"
-        label='Lugar'
-        onChange={handleChangeSelect2}
-        value={formData?.home.lugar || ''}
-        fullWidth 
-        defaultValue="Otro"
-        required
-        helperText='Una vez seleccionado el Lugar, completa el formulario correspondiente ingresando desde el botón de abajo.'
-        
-      >
-        <MenuItem value="Teatro">Teatro</MenuItem>
-        <MenuItem value="Tinglado">Tinglado</MenuItem>
-        <MenuItem value="CampoDeporte">Campo de Deporte</MenuItem>
-        <MenuItem value="Otro">Otro</MenuItem>
-      </TextField> */}
+
+   
 
 
     </Box>
