@@ -15,7 +15,7 @@ function Lugar ({handle}){
     return <Box className={styles.lugar}>
 
         <Typography variant='h6' textAlign='center'>¡Bienvenidos!</Typography>
-        <Typography  variant='h6' textAlign='center'>Porfavor, selecciona donde vas  a realizar el vento.</Typography>
+        <Typography  variant='h6' textAlign='center'>Por favor, selecciona dónde vas  a realizar el vento.</Typography>
         <Box marginTop='50px' marginBottom='50px'>
         <TextField
         select
