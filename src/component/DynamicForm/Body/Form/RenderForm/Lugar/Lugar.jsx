@@ -22,7 +22,7 @@ function Lugar ({handle}){
    El primer paso es seleccionar el lugar, luego el botón SIGUIENTE y 
    después se desplegarán todas las opciones para que puedas elegir.
 </Typography>
-<br/>
+        <br/>
         <Typography>
           IMPORTANTE: Una vez que completes y envies el formulario no podrá modificarse, asi que es muy importante que no olvides
           incluir ningún detalle o necesidad.
@@ -37,8 +37,9 @@ function Lugar ({handle}){
         fullWidth 
         defaultValue="Otro"
         required
-       
+        helperText='Una vez seleccionado el Lugar, completa el formulario correspondiente ingresando desde el botón de abajo.'
       >
+
         <MenuItem value="Teatro">Teatro</MenuItem>
         <MenuItem value="Tinglado">Tinglado</MenuItem>
         <MenuItem value="CampoDeporte">Campo de Deporte</MenuItem>
