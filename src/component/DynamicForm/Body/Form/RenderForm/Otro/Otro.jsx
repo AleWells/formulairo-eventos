@@ -174,7 +174,7 @@ label='Lugar del Evento'
         <MenuItem value="sin fondo">sin fondo</MenuItem>
         
          </TextField>
-         <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%'}}>
+         <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%',height:'56px'}}>
   <FormControlLabel
       label='Escudo para fondo'
       control={<Checkbox

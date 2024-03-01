@@ -162,7 +162,7 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
         <MenuItem value="sin fondo">sin fondo</MenuItem>
         
          </TextField>
-         <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%'}}>
+         <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%',height:'56px'}}>
   <FormControlLabel
       label='Escudo para fondo'
       control={<Checkbox
@@ -228,7 +228,16 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
          value={formData?.tinglado.dataSobreEscenario.escaleras || ""}
          onChange={handleChangeSobreEscenario}
          />
-         <TextField
+     
+           <TextField
+         id='alargues'
+         type='number'
+         label='Alargues (cantidad)'
+         fullWidth
+         value={formData?.tinglado.dataSobreEscenario.alargues || ""}
+         onChange={handleChangeSobreEscenario}
+         />
+             <TextField
          id='microfonoInalambrico'
          type='number'
          label='Micrófono inalámbrico (cantidad)'
@@ -246,14 +255,6 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
       />}
     />
     </Box>
-           <TextField
-         id='alargues'
-         type='number'
-         label='Alargues (cantidad)'
-         fullWidth
-         value={formData?.tinglado.dataSobreEscenario.alargues || ""}
-         onChange={handleChangeSobreEscenario}
-         />
 
       </Box>
     }
@@ -299,7 +300,7 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
          id='observacionesSillas'
          label='Observaciones disposición de sillas'
          multiline
-         rows={5}
+         rows={4}
          value={formData?.tinglado.dataBajoEscenario.observacionesSillas || ""}
          onChange={handleChangeBajoEscenario}
          fullWidth
@@ -363,7 +364,7 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
       onChange={handleCheckChangeBajoEscenario}
       />}
     />
-
+   <br/>
    
       </Box>
 
