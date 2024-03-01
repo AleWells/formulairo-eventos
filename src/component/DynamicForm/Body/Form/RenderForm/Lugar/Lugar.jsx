@@ -15,7 +15,18 @@ function Lugar ({handle}){
     return <Box className={styles.lugar}>
 
         <Typography variant='h6' textAlign='center'>¡Bienvenidos!</Typography>
-        <Typography  variant='h6' textAlign='center'>Por favor, selecciona dónde vas  a realizar el vento.</Typography>
+        <br/>
+        <Typography  textAlign='center'>
+  A continuación completarán el formulario para el evento que desean realizar.
+   Una vez finalizado, se enviarán tus requerimientos a los sectores correspondientes. 
+   El primer paso es seleccionar el lugar, luego el botón SIGUIENTE y 
+   después se desplegarán todas las opciones para que puedas elegir.
+</Typography>
+<br/>
+        <Typography>
+          IMPORTANTE: Una vez que completes y envies el formulario no podrá modificarse, asi que es muy importante que no olvides
+          incluir ningún detalle o necesidad.
+        </Typography>
         <Box marginTop='50px' marginBottom='50px'>
         <TextField
         select
