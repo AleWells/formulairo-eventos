@@ -45,7 +45,7 @@ export default function CampoDeporteForm(){
     <TextField
       id='mesas'
       type='number'
-      label='Mesas (cantidad)'
+      label='Mesas redondas (cantidad)'
       onChange={handleChange}
       value={formData.campoDeporte.mesas || ""}
       fullWidth
@@ -101,6 +101,22 @@ export default function CampoDeporteForm(){
       onChange={handleChange}
       fullWidth
       />
+      <TextField
+         id='mantelBlanco'
+         type='number'
+         label='Mantel Blanco (cantidad)'
+         fullWidth
+         value={formData?.teatro.dataSobreEscenario.mantelBlanco || ""}
+         onChange={handleChange}
+         />
+              <TextField
+         id='mantelAzul'
+         type='number'
+         label='Mantel Azul (cantidad)'
+         fullWidth
+         value={formData?.teatro.dataSobreEscenario.mantelAzul || ""}
+         onChange={handleChange}
+         />
      <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%'}}>
 
      <FormControlLabel

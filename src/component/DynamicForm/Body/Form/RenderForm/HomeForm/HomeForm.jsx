@@ -60,7 +60,7 @@ return (
      <TextField
      id='nombreCompleto'
      type='text'
-     label='Nombre y Apellido'
+     label='Apellido y Nombre'
      value={formData.home.nombreCompleto || ""}
      onChange={handleChange}
      fullWidth

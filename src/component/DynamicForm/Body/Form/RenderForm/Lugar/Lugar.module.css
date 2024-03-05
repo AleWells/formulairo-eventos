@@ -1,0 +1,16 @@
+.lugar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 0 auto;
+    padding: 16px;
+    width: 50%;
+}
+@media(max-width:1000px){
+    .lugar{
+        width: 90%;
+        padding: 0 ;
+    }
+  }
