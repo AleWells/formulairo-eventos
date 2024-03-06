@@ -33,7 +33,9 @@ const {lugar} = useSelector(state=>state.data.form.home)
     handleClose(false);
     alertPending();
   }
-
+ const handleVolver = ()=>{
+  setCurrentSection('Home')
+ }
   return (
     <Box component='form' className={styles.containerForm} onSubmit={handleSubmit}>
       <Box sx={{ display: 'flex', justifyContent: 'center' }}>
@@ -54,7 +56,8 @@ const {lugar} = useSelector(state=>state.data.form.home)
 
         
       {currentSection !=="Home" && currentSection !=="Lugar" &&
-       <Box sx={{ display: 'flex', justifyContent: 'center' ,margin:'20px'}}>
+       <Box sx={{ display: 'flex', justifyContent: 'center' ,margin:'20px',gap:'20px'}}>
+        <Button onClick={handleVolver} variant='outlined'>VOLVER</Button>
        <Button type='submit' variant='contained'>Enviar</Button>
      </Box> }
 
