@@ -106,7 +106,7 @@ export default function CampoDeporteForm(){
          type='number'
          label='Mantel Blanco (cantidad)'
          fullWidth
-         value={formData?.teatro.dataSobreEscenario.mantelBlanco || ""}
+         value={formData?.campoDeporte.mantelBlanco || ""}
          onChange={handleChange}
          />
               <TextField
@@ -114,7 +114,15 @@ export default function CampoDeporteForm(){
          type='number'
          label='Mantel Azul (cantidad)'
          fullWidth
-         value={formData?.teatro.dataSobreEscenario.mantelAzul || ""}
+         value={formData?.campoDeporte.mantelAzul || ""}
+         onChange={handleChange}
+         />
+          <TextField
+         id='microfonoInalambrico'
+         type='number'
+         label='Micrófono Inalambrico (cantidad)'
+         fullWidth
+         value={formData?.campoDeporte.microfonoInalambrico || ""}
          onChange={handleChange}
          />
      <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%'}}>
