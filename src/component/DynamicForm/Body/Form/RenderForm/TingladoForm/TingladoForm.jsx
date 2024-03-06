@@ -220,14 +220,7 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
          value={formData?.tinglado.dataSobreEscenario.gradas || ""}
          onChange={handleChangeSobreEscenario}
          />
-           <TextField
-         id='escaleras'
-         type='number'
-         label='Escaleras (cantidad)'
-         fullWidth
-         value={formData?.tinglado.dataSobreEscenario.escaleras || ""}
-         onChange={handleChangeSobreEscenario}
-         />
+        
      
            <TextField
          id='alargues'
@@ -329,7 +322,14 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
          value={formData?.tinglado.dataBajoEscenario.alargues || ""}
          onChange={handleChangeBajoEscenario}
          />
-    
+           <TextField
+         id='escaleras'
+         type='number'
+         label='Escaleras (cantidad)'
+         fullWidth
+         value={formData?.tinglado.dataBajoEscenario.escaleras || ""}
+         onChange={handleChangeBajoEscenario}
+         />
        <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%'}}>
       <FormControlLabel
       label='Parlante'
