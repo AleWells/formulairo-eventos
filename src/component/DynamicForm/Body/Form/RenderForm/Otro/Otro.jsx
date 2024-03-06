@@ -377,14 +377,7 @@ label='Lugar del Evento'
          onChange={handleChangeBajoEscenario}
          />
         <Box sx={{display:'flex',flexDirection:'column',width:'100%'}}>
-        <FormControlLabel
-      label='Proyector Arriba'
-      control={<Checkbox
-      checked={formData?.otro.dataBajoEscenario.proyector || false}
-      name='proyector'
-      onChange={handleCheckChangeBajoEscenario}
-      />}
-    />
+      
 
 <FormControlLabel
       label='Fondo de prensa'
