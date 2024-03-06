@@ -306,7 +306,7 @@ dispatch(updateForm({...formData,teatro:{...formData.teatro,dataSobreEscenario:{
     />
 <Typography variant="body2" color='gray'> (proyecta en un costado del fondo blanco)</Typography>
 </Box>
-
+<br/>
         <FormControlLabel
       label='Puntero'
       control={<Checkbox
@@ -438,9 +438,10 @@ dispatch(updateForm({...formData,teatro:{...formData.teatro,dataSobreEscenario:{
      
       />}
     />
+    
     <Typography variant="body2" color='gray'> (proyecta en el medio del fondo blanco)</Typography>
         </Box>
-
+<br/>
 <FormControlLabel
       label='Fondo de prensa'
       control={<Checkbox
