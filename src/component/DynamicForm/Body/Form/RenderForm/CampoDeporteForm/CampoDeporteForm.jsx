@@ -43,11 +43,11 @@ export default function CampoDeporteForm(){
  
     <Box className={styles.bodyCampoDeporte}>
     <TextField
-      id='mesas'
+      id='mesasR'
       type='number'
       label='Mesas redondas (cantidad)'
       onChange={handleChange}
-      value={formData.campoDeporte.mesas || ""}
+      value={formData.campoDeporte.mesasR || ""}
       fullWidth
      
       />
@@ -128,7 +128,7 @@ export default function CampoDeporteForm(){
      <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%'}}>
 
      <FormControlLabel
-      label='Parlantes (cantidad)'
+      label='Parlantes'
       control={<Checkbox
       checked={formData?.campoDeporte.parlantes || false}
       name='parlantes'
@@ -181,8 +181,8 @@ export default function CampoDeporteForm(){
          en el evento"
          />
          <TextField
-         id='observacionesComunicacion'
-         label='Observaciones Comunicación'
+         id='observacionesComunicaciones'
+         label='Observaciones Comunicaciónes'
          multiline
          rows={5}
          value={formData.campoDeporte.observacionesComunicacion || ""}
@@ -200,8 +200,8 @@ export default function CampoDeporteForm(){
          fullWidth
          />
             <TextField
-         id='observacionesMantenimineto'
-         label='Observaciones Manteniento'
+         id='observacionesMantenimiento'
+         label='Observaciones Mantenimiento'
          multiline
          rows={5}
          value={formData.campoDeporte.observacionesMantenimineto || ""}

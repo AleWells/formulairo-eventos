@@ -273,7 +273,7 @@ label='Lugar del Evento'
       label='Proyector sobre escenario'
       control={<Checkbox
       checked={formData?.otro.dataSobreEscenario.proyector || false}
-      name='proyector'
+      name='proyectorA'
       onChange={handleCheckChangeSobreEscenario}
       />}
     />
