@@ -298,7 +298,7 @@ dispatch(updateForm({...formData,teatro:{...formData.teatro,dataSobreEscenario:{
 <FormControlLabel
       label='Proyector sobre escenario'
       control={<Checkbox
-      checked={formData?.teatro.dataSobreEscenario.proyector || false}
+      checked={formData?.teatro.dataSobreEscenario.proyectorA || false}
       name='proyectorA'
       onChange={handleCheckChangeSobreEscenario}
       
@@ -424,7 +424,7 @@ dispatch(updateForm({...formData,teatro:{...formData.teatro,dataSobreEscenario:{
          label='Alargues (cantidad)'
          fullWidth
          value={formData?.teatro.dataBajoEscenario.alargues || ""}
-         onChange={handleChangeSobreEscenario}
+         onChange={handleChangeBajoEscenario}
          />
          <Box sx={{display:'flex',flexDirection:'column',alignItems:'flex-start',width:'100%'}}>
         
@@ -432,7 +432,7 @@ dispatch(updateForm({...formData,teatro:{...formData.teatro,dataSobreEscenario:{
         <FormControlLabel
       label='Proyector Arriba'
       control={<Checkbox
-      checked={formData?.teatro.dataBajoEscenario.proyector || false}
+      checked={formData?.teatro.dataBajoEscenario.proyectorB || false}
       name='proyectorB'
       onChange={handleCheckChangeBajoEscenario}
      
