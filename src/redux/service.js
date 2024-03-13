@@ -38,7 +38,7 @@ export const  estructuraFormulario = {
       bajoEscenario:false,
       dataSobreEscenario:{
         pieMicrofono:false,
-        proyector:false,
+        proyectorA:false,
         puntero:false,
       pantalla:false,
     computadora:false,  
@@ -64,13 +64,13 @@ export const  estructuraFormulario = {
 
       dataSobreEscenario:{
         pieMicrofono:false,
-        proyector:false,
+        proyectorA:false,
         puntero:false,
       pantalla:false,
     computadora:false,  
       },
       dataBajoEscenario:{
-        proyector:false,
+        proyectorB:false,
         fondoPrensa:false,
         computadora:false,
         aireAcondicionado:false,
