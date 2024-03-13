@@ -181,11 +181,11 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
          onChange={handleChangeSobreEscenario}
          />
          <TextField
-         id='Pupitres'
+         id='pupitres'
          type="number"
          label='Pupitres (cantidad)'
          fullWidth
-         value={formData?.tinglado.dataSobreEscenario.Pupitres || ""}
+         value={formData?.tinglado.dataSobreEscenario.pupitres || ""}
          onChange={handleChangeSobreEscenario}
          />
                   <TextField

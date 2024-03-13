@@ -193,11 +193,11 @@ label='Lugar del Evento'
          onChange={handleChangeSobreEscenario}
          />
          <TextField
-         id='Pupitres'
+         id='pupitres'
          type="number"
          label='Pupitres (cantidad)'
          fullWidth
-         value={formData.otro.dataSobreEscenario.Pupitres || ""}
+         value={formData.otro.dataSobreEscenario.pupitres || ""}
          onChange={handleChangeSobreEscenario}
          />
           <TextField
