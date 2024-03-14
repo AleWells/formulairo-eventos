@@ -81,9 +81,9 @@ label='Nombre del Evento'
         name="sector"
         label='Sector'
         onChange={handleChangeSelect}
-        value={formData?.home.sector || "Otro"}
+        value={formData?.home.sector || ""}
         fullWidth 
-        defaultValue="Otro"
+        // defaultValue="Otro"
         required
         
       >
