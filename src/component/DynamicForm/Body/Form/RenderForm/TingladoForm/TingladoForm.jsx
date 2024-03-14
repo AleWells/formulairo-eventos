@@ -385,7 +385,7 @@ dispatch(updateForm({...formData,tinglado:{...formData.tinglado,dataSobreEscenar
          label='Observaciones Comunicación'
          multiline
          rows={5}
-         value={formData?.tinglado.dataBajoEscenario.observacionesComunicacion || ""}
+         value={formData?.tinglado.dataBajoEscenario.observacionesComunicaciones || ""}
          onChange={handleChangeBajoEscenario}
          fullWidth
          />

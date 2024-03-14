@@ -205,7 +205,7 @@ label='Lugar del Evento'
          type='number'
          label='Mantel Blanco (cantidad)'
          fullWidth
-         value={formData?.teatro.dataSobreEscenario.mantelBlanco || ""}
+         value={formData?.otro.dataSobreEscenario.mantelBlanco || ""}
          onChange={handleChangeSobreEscenario}
          />
               <TextField
@@ -213,7 +213,7 @@ label='Lugar del Evento'
          type='number'
          label='Mantel Azul (cantidad)'
          fullWidth
-         value={formData?.teatro.dataSobreEscenario.mantelAzul || ""}
+         value={formData?.otro.dataSobreEscenario.mantelAzul || ""}
          onChange={handleChangeSobreEscenario}
          />
          <TextField

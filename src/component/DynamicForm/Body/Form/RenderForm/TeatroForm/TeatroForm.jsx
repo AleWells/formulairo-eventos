@@ -549,7 +549,7 @@ dispatch(updateForm({...formData,teatro:{...formData.teatro,dataSobreEscenario:{
          onChange={handleChangeBajoEscenario}
          />
                <TextField
-         id='vasoVidrio'
+         id='vasosVidrio'
          type='number'
          label='Vasos vidrio (cantidad)'
          fullWidth

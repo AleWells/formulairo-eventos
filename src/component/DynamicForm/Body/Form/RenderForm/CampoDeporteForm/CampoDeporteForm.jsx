@@ -185,7 +185,7 @@ export default function CampoDeporteForm(){
          label='Observaciones Comunicaciónes'
          multiline
          rows={5}
-         value={formData.campoDeporte.observacionesComunicacion || ""}
+         value={formData.campoDeporte.observacionesComunicaciones || ""}
          onChange={handleChange} 
          fullWidth
          />
@@ -204,7 +204,7 @@ export default function CampoDeporteForm(){
          label='Observaciones Mantenimiento'
          multiline
          rows={5}
-         value={formData.campoDeporte.observacionesMantenimineto || ""}
+         value={formData.campoDeporte.observacionesMantenimiento || ""}
          onChange={handleChange} 
          fullWidth
          />
