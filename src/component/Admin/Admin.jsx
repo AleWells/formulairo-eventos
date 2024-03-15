@@ -1,8 +1,10 @@
 import { Box } from '@mui/material';
-import styles from './Admin.module.css'
+import Unlog from '../Index/Unlog/Unlog';
+import { useState } from 'react';
 const Admin = ()=>{
+    const [open,setOpen] = useState(false)
 return <Box>
-    
+    <Unlog/>
 </Box>
 }
 

@@ -32,7 +32,9 @@ export default function Unlog(){
     
   const handleOut = ()=>{
     disconect(dispatch,uploadUser);
+    navigate('/')
     location.reload()
+    
   }
     return(<AppBar position="static">
       <Toolbar>
@@ -90,22 +92,3 @@ export default function Unlog(){
     </AppBar>)
 }
 
-
-
-// <Box className={styles.unlog}>
-       
-       
-//        <Box sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-//         <Typography variant='body2'>Bienvenido : <strong>{user}</strong></Typography>
-//        </Box>
-      
-//        <Box sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-//        <Button variant='outlined' color='primary' onClick={handleClick}>
-//        <LogoutIcon/>
-//        <Typography>logout</Typography>
-//         </Button>
-//        </Box>
-      
-       
-     
-//     </Box>
