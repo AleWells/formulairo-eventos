@@ -3,7 +3,7 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import Unlog from '../Index/Unlog/Unlog';
 import { useState } from 'react';
-import CreateUser from './CreateUser/Createuser';
+import CreateUser from './CreateUser/CreateUser';
 const Admin = ()=>{
     const [open,setOpen] = useState(false)
     const handleAdd = ()=>{
