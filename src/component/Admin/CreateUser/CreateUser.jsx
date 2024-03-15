@@ -1,4 +1,4 @@
 import styles from './CreateUser.module.css'
-export default function  CreateUser (){
+export default function  CreateUser ({isOpen,handleClose}){
     
 }
