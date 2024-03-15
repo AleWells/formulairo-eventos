@@ -4,6 +4,7 @@ import Error404 from './component/Error404/Error404.jsx';
 import  Index  from './component/Index/Index.jsx';
 import DynamicForm from './component/DynamicForm/DynamicForm.jsx';
 import ViewForm from "./component/DynamicForm/ViewForm.jsx";
+import Admin from "./component/Admin/Admin.jsx";
 const router = createBrowserRouter([
     {
       path: '/',
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         {
           path:'/formulario/:id',
           element:<ViewForm/>
+        },
+        {
+          path:'/admin',
+          element:<Admin/>
         }
       ]
     },

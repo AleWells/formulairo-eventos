@@ -13,9 +13,12 @@ import {uploadUser} from '../../../redux/slice.js'
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import logo from '../../../images/encabezado-wellspring.png';
 import LogoutIcon from '@mui/icons-material/Logout';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import styles from './Unlog.module.css'
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function Unlog(){
+  const navigate = useNavigate();
   const dispatch = useDispatch;
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -71,8 +74,14 @@ export default function Unlog(){
        
         <MenuItem onClick={handleOut}>
         <LogoutIcon/>
-           cerrar sesión
+           Cerrar Sesión
         </MenuItem>
+      {user==='admin@wellspring.edu.ar'?
+      <MenuItem onClick={()=>{navigate('/admin')}}>
+      <AdminPanelSettingsIcon/>
+      Consola
+      </MenuItem>:null  
+    }
       </Menu>
   </Box>     
   </Box>
