@@ -33,8 +33,9 @@ const handleView = (id)=>{
         <thead>
           <tr>
             <th>ID</th>
-            <th>Creation date</th>
-            <th>View</th>
+            <th>Fecha de evento</th>
+            <th>Hora Inicio</th>
+            <th>Ver fomulario</th>
           </tr>
         </thead>
         <tbody>
@@ -50,7 +51,8 @@ const handleView = (id)=>{
                 {form.id}
                 </td>
                
-                <td>{form.createdAt.split("T")[0]}</td>
+                <td>{form.data.home.fecha}</td>
+                <td>{form.data.home.hora}</td>
                 <td><Button onClick={()=>{handleView(form.id)}}><FileOpenIcon /></Button></td>
               </tr>
             )
