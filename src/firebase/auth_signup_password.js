@@ -3,7 +3,7 @@ import {createUser} from '../socket.js'
 const auth = getAuth();
 
 
-export function createUser(email,name){
+export function setUser(email,name){
 
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {

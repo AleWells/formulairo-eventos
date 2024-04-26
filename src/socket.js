@@ -23,7 +23,11 @@ export const listenerUser = (email,dispatch,action)=>{
  if(alertCreateForm){alertSetFormOk()}
  if(deleteForm){alertDeleteFormPending()}
  if(updateForm){alertSendFormOk()}
- if(createUser){alertCreateUser()}
+ if(createUser){
+  // Una vez la base de datos crea el usuario 
+  // acá se confirma y reciben los usuarios actualizados
+// tambien se  despacha en Redux los usuarios nuevos
+}
   })
 }
 
