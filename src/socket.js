@@ -18,12 +18,12 @@ export const initSocket = (user)=>{
       }
 }
 export const listenerUser = (email,dispatch,action)=>{
-  socket.on(email,({forms,alertCreateForm,deleteForm,updateForm})=>{
+  socket.on(email,({forms,alertCreateForm,deleteForm,updateForm,createUser})=>{
  if(forms){  dispatch(action(forms))}
  if(alertCreateForm){alertSetFormOk()}
  if(deleteForm){alertDeleteFormPending()}
  if(updateForm){alertSendFormOk()}
- 
+ if(createUser){alertCreateUser()}
   })
 }
 
@@ -46,3 +46,6 @@ export const deleteFormPending = (id,user)=>{
 export const updateForm = ({id,form,user})=>{
   socket.emit('updateForm',{id,form,user})
   }
+export const createUser = (email,name)=>{
+  socket.emit('createUser',{email,name})
+}
