@@ -14,7 +14,7 @@ export const stateSlice = createSlice({
     uploadUser: (state, action) => {
       state.user = action.payload
     },
-    uploadValues:(state,action)=>{
+    uploadForms:(state,action)=>{
       state.forms=action.payload
     },
     updateForm:(state,action)=>{
@@ -24,5 +24,5 @@ export const stateSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { uploadUser,uploadValues,updateForm } = stateSlice.actions
+export const { uploadUser,uploadForms,updateForm } = stateSlice.actions
 export default stateSlice.reducer

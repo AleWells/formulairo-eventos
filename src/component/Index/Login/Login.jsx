@@ -20,8 +20,7 @@ export default function Login() {
     // Aquí puedes llamar a tu función para enviar los datos a la API
     // Utiliza los valores de `usuario` y `password` para enviarlos correctamente
     // a la API
-    console.log("Usuario:", usuario);
-    console.log("Password:", password);
+    
     login(usuario,password);
   };
   const handleKeyPress = (event) => {

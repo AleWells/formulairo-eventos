@@ -8,6 +8,24 @@ export function initListener(dispatch){
  authListener(dispatch,uploadUser)
  
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ALERTAS
 export function alertSendFormOk(){
      
 

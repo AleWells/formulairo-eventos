@@ -29,6 +29,7 @@ const {lugar} = useSelector(state=>state.data.form.home)
   const handleSubmit = (e) => {
     e.preventDefault();
     // updateForm({id,form,user});
+  
     createForm(user,form)
     handleClose(false);
     alertPending();

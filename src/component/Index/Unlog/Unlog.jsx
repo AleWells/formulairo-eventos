@@ -56,7 +56,7 @@ export default function Unlog(){
   onClick={handleClick}
   >
     <AccountCircleIcon className={styles.icon}/>
-    <Typography className={styles.textIcon}>{user}</Typography>
+    <Typography className={styles.textIcon}>{user.name}</Typography>
     </IconButton>
     <Menu
         id="demo-positioned-menu"
@@ -78,7 +78,7 @@ export default function Unlog(){
         <LogoutIcon/>
            Cerrar Sesión
         </MenuItem>
-      {user==='admin@wellspring.edu.ar'?
+      {user.email==='admin@wellspring.edu.ar'?
       <MenuItem onClick={()=>{navigate('/admin')}}>
       <AdminPanelSettingsIcon/>
       Consola
