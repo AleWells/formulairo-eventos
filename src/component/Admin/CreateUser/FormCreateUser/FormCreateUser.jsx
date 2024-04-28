@@ -1,7 +1,7 @@
 import { useState } from 'react'; // Importar el hook useState
 import styles from './FormCreateUser.module.css';
 import { TextField, Box, Typography, Button } from "@mui/material";
-
+import {apiCalendar} from '../../../../socket'
 const FormCreateUser = () => {
   // Definir el estado inicial para los campos del formulario
   const [formData, setFormData] = useState({
@@ -25,6 +25,7 @@ const FormCreateUser = () => {
     e.preventDefault();
     // Aquí puedes enviar formData a una función para manejarlo, como enviarlo al backend, por ejemplo
     console.log('Datos del formulario:', formData);
+    apiCalendar();
   };
 
   return (
