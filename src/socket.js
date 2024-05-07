@@ -67,10 +67,18 @@ export const apiCalendar = ()=>{
   socket.emit('apiCalendar',{})
 }
 
+ 
 
 
 
 
+export const listenerCalendar = ()=>{
+  socket.on("API",({calendarios})=>{
+    console.log("Llegan los calendarios")
+    console.log("Valor del calendario = ")
+    console.log(calendarios)
+  })
+}
 
 
 

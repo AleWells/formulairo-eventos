@@ -4,10 +4,14 @@ import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import TableForms from '../TableForms/TableForms.jsx';
 import LoaderDash from '../LoaderDash/LoaderDash.jsx';
+import { listenerCalendar } from '../../socket.js';
+
 
 export default function DashHome() {
 const {user,forms} = useSelector(state=>state.data)
-
+ useEffect(()=>{
+  listenerCalendar();
+ },[])
                                              
   return (
     <Box className={styles.dashhome}>    

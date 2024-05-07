@@ -6,12 +6,14 @@ import { useDispatch,useSelector } from 'react-redux';
 import Unlog from "./Unlog/Unlog";
 import DashHome from '../DashHome/DashHome';
 
+
 export default function Index (){
     const dispatch = useDispatch();
     const {user} = useSelector(state=>state.data);
    useEffect(()=>{
     // inicio  socket y otras configuraciones 
       authListener(dispatch);
+      
    },[])
  
     return(<Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
