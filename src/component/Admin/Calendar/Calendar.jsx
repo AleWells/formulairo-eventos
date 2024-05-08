@@ -42,6 +42,7 @@ export default function Calendar({ isOpen, handleClose }) {
                 open={isOpen}
                 onClose={handleClose}
                 TransitionComponent={Transition}
+                className={styles.dialog}
             >
                 <AppBar sx={{ position: 'relative' }}>
                     <Toolbar>
@@ -57,24 +58,25 @@ export default function Calendar({ isOpen, handleClose }) {
                 </AppBar>
                 <TableContainer>
                     <Table>
-                        <TableHead>
+                        <TableHead >
                             <TableRow>
-                                <TableCell>Nombre del Calendario</TableCell>
-                                <TableCell>Compartir por correo electrónico</TableCell>
+                                <TableCell style={{fontWeight:"bold"}}>Nombre del Calendario</TableCell>
+                                <TableCell style={{fontWeight:"bold"}}>Compartir por correo electrónico</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody>
                             {calendarios.map((calendar) => (
                                 <TableRow key={calendar.id}>
-                                    <TableCell>{calendar.summary}</TableCell>
-                                    <TableCell>
+                                    <TableCell >{calendar.summary}</TableCell>
+                                    <TableCell style={{padding:12}} >
                                         <TextField
+                                            style={{marginRight: 10}}
                                             label="Correo electrónico"
                                             variant="outlined"
                                             value={emailInputs[calendar.id] || ''}
                                             onChange={(event) => handleEmailInputChange(event, calendar.id)}
                                         />
-                                        <Button variant="contained" onClick={() => handleAddEmail(calendar.id)}>Agregar</Button>
+                                        <Button style={{marginTop:10}} variant="contained" onClick={() => handleAddEmail(calendar.id)}>Agregar</Button>
                                     </TableCell>
                                 </TableRow>
                             ))}
