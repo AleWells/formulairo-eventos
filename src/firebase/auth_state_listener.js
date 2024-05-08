@@ -1,7 +1,7 @@
 import {auth} from './app.js'
 import {  onAuthStateChanged } from "firebase/auth";
 
-import {initSocket,listenerUser} from '../socket.js'
+import {initSocket,listenerCalendar,listenerUser} from '../socket.js'
 export function authListener(dispatch){
     onAuthStateChanged(auth, (user) => {
         if (user) {
@@ -16,6 +16,7 @@ export function authListener(dispatch){
           // y escucho los eventos.
           initSocket(user.email)
           listenerUser(user.email,dispatch)  
+          listenerCalendar(dispatch);
           // ...
         } else {s
           // User is signed out
