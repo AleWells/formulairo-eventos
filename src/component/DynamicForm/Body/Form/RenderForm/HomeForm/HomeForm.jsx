@@ -2,6 +2,7 @@ import { Box, FormControlLabel, FormGroup, MenuItem, TextField, Typography,Check
 import { useDispatch, useSelector } from "react-redux";
 import { updateForm } from "../../../../../../redux/slice.js";
 import styles from './HomeForm.module.css'
+import ViewCalendar  from '../../../../../ViewCalendar/ViewCalendar'
 export default function HomeForm({handle}) {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.data.form);
@@ -46,6 +47,12 @@ export default function HomeForm({handle}) {
   }
 return (
     <Box className={styles.home}>
+      <Box>
+        <ViewCalendar/>
+      </Box>
+   
+
+
       <Box>
         <Typography variant='h6'>{lugares.find(obj=>obj.name===formData.home.lugar).label}</Typography>
       </Box>
@@ -128,7 +135,7 @@ label='Nombre del Evento'
 
 
    
-
+      
 
     </Box>
   );

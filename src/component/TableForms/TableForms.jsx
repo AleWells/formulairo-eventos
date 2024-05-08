@@ -19,7 +19,7 @@ const handleView = (id)=>{
 }
   return (
     <Box className={styles.tablecontainer}>
-    
+     
         {forms.length?<>
         <Box sx={{display:'flex'}}>
                <ListIcon/>
