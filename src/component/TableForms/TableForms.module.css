@@ -56,3 +56,15 @@
     }
 
   }
+
+  .pendiente {
+    color: orange; /* Color naranja para estado "PENDIENTE" */
+  }
+  
+  .aceptado {
+    color: green; /* Color verde para estado "ACEPTADO" */
+  }
+  
+  .rechazado {
+    color: red; /* Color rojo para estado "RECHAZADO" */
+  }

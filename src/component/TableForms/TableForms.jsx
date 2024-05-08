@@ -35,6 +35,7 @@ const handleView = (id)=>{
             <th>ID</th>
             <th>Fecha de evento</th>
             <th>Hora Inicio</th>
+            <th>Estado</th>
             <th>Ver fomulario</th>
           </tr>
         </thead>
@@ -53,6 +54,10 @@ const handleView = (id)=>{
                
                 <td>{form.data.home.fecha}</td>
                 <td>{form.data.home.hora}</td>
+                <td className={` ${form.estado === 'PENDIENTE' ? styles.pendiente : form.estado === 'ACEPTADO' ? styles.aceptado : styles.rechazado}`}>
+  {form.estado}
+</td>
+
                 <td><Button onClick={()=>{handleView(form.id)}}><FileOpenIcon /></Button></td>
               </tr>
             )
