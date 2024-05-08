@@ -6,6 +6,7 @@ export default function HomeForm({handle}) {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.data.form);
   const datosHome = useSelector((state)=>state.data.form.home)
+  const {user} = useSelector((state)=>state.data);
   const handleChange = (e) => {
     const { value, id } = e.target;
     dispatch(updateForm({ ...formData, home: {...formData.home,[id]: value } }));
@@ -52,18 +53,20 @@ return (
       id='email'
       type='email'
       label='Correo Electrónico'
-      value={formData.home.email || ""}
+      value={user.email}
       onChange={handleChange}
       fullWidth
+      disabled={true}
       required
      />
      <TextField
      id='nombreCompleto'
      type='text'
      label='Apellido y Nombre'
-     value={formData.home.nombreCompleto || ""}
+     value={user.name}
      onChange={handleChange}
      fullWidth
+     disabled={true}
      required
      />
      
