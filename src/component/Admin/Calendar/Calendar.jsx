@@ -3,7 +3,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import React, { useState } from 'react';
 import styles from './Calendar.module.css';
 import { useSelector } from 'react-redux';
-
+import {compartirCalendario} from '../../../socket'
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -28,12 +28,18 @@ export default function Calendar({ isOpen, handleClose }) {
     const handleAddEmail = (calendarId) => {
         // Aquí puedes implementar la lógica para agregar el correo electrónico al calendario
         console.log(`Agregando correo electrónico "${emailInputs[calendarId]}" al calendario con ID "${calendarId}"`);
+    
+
+        // Emitir un evento para conectar con el servidor
+        compartirCalendario(calendarId,emailInputs[calendarId]);
+       
         // Limpia el campo de entrada después de agregar el correo electrónico
         setEmailInputs({
             ...emailInputs,
             [calendarId]: '' // Limpia el campo de entrada para este calendario
         });
     };
+    
 
     return (
         <React.Fragment>

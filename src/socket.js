@@ -63,8 +63,8 @@ export const listenerUser = (email,dispatch)=>{
 
 // EMITIR EVENTO DE PRUEBA GOOGLE CALENDAR
 export const apiCalendar = ()=>{
-
-  socket.emit('apiCalendar',{})
+// se manda evento para solicitar calendarios
+  socket.emit('apiCalendar',{getCalendar})
 }
 
  
@@ -82,7 +82,9 @@ export const listenerCalendar = (dispatch)=>{
 }
 
 
-
+export const compartirCalendario = (id,email) =>{
+  socket.emit('apiCalendar',{compartir:{id,email}})
+}
 
 
 
