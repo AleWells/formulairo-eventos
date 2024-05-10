@@ -44,21 +44,22 @@ export const listenerUser = (email,dispatch)=>{
       alertSetFormOk()
     }
 
-//  if(forms){  dispatch(action(forms))}
-//  if(alertCreateForm){alertSetFormOk()}
-//  if(deleteForm){alertDeleteFormPending()}
-//  if(updateForm){alertSendFormOk()}
-//  if(createUser){
 
-//   // Una vez la base de datos crea el usuario 
-//   // acá se confirma y reciben los usuarios actualizados
-// // tambien se  despacha en Redux los usuarios nuevos
-// }
   })
 }
 
 
+// Listener Alert
+export const listenerAlerts = ()=>{
+  socket.on('Alerts',(data)=>{
 
+    // alerta de calendario compartido
+    if(data.compartido){
+      console.log("Calendario compartido correctamente")
+    }
+
+  });
+}
 
 
 // EMITIR EVENTO DE PRUEBA GOOGLE CALENDAR
@@ -88,7 +89,7 @@ export const compartirCalendario = (id,email) =>{
 
 
 
-
+// 
 
 
 
@@ -123,3 +124,4 @@ export const updateForm = ({id,form,user})=>{
 export const createUser = (email,name)=>{
   socket.emit('createUser',{email,name})
 }
+
