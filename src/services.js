@@ -107,8 +107,21 @@ export function alertPending(){
   return Swal.fire({
     toast: true,
     position: 'top-end',
-    icon: 'success',
+    icon: 'info',
     title: 'Un momento por favor',
+    timerProgressBar: true,
+    showConfirmButton: false,
+    timer: 3000
+  })
+  
+}
+
+export function alertCompartido(){
+  return Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: 'Se compartió formulario correctamente',
     timerProgressBar: true,
     showConfirmButton: false,
     timer: 3000

@@ -1,6 +1,6 @@
 import io from "socket.io-client";
 // importo las alertas
-import {alertSetFormOk,alertDeleteFormPending,alertSendFormOk} from './services.js'
+import {alertSetFormOk,alertDeleteFormPending,alertSendFormOk,alertCompartido} from './services.js'
 import {uploadUser, uploadForms, uploadCalendario} from './redux/slice.js'
 let socket;
 const apiUrlDeploy = import.meta.env.VITE_URL_API_DEPLOY;
@@ -55,7 +55,8 @@ export const listenerAlerts = ()=>{
 
     // alerta de calendario compartido
     if(data.compartido){
-      console.log("Calendario compartido correctamente")
+     
+      alertCompartido();
     }
 
   });

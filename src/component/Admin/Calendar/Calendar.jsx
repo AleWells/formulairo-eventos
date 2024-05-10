@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import styles from './Calendar.module.css';
 import { useSelector } from 'react-redux';
 import {compartirCalendario} from '../../../socket'
+import {alertPending} from '../../../services'
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
@@ -32,12 +33,13 @@ export default function Calendar({ isOpen, handleClose }) {
 
         // Emitir un evento para conectar con el servidor
         compartirCalendario(calendarId,emailInputs[calendarId]);
-       
+        alertPending();
         // Limpia el campo de entrada después de agregar el correo electrónico
         setEmailInputs({
             ...emailInputs,
             [calendarId]: '' // Limpia el campo de entrada para este calendario
         });
+        handleClose(false);
     };
     
 
