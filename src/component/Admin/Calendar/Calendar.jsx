@@ -73,7 +73,7 @@ export default function Calendar({ isOpen, handleClose }) {
                             <TableRow>
                                 <TableCell>
                                     <FormControl fullWidth>
-                                        <InputLabel id="calendar-selector-label">Seleccionar Calendario</InputLabel>
+                                        <InputLabel  id="calendar-selector-label" > Calendario</InputLabel>
                                         <Select
                                             labelId="calendar-selector-label"
                                             id="calendar-selector"
