@@ -18,16 +18,19 @@ export default function Calendar({ isOpen, handleClose }) {
 
     const [selectedCalendar, setSelectedCalendar] = useState('');
     const [emailInput, setEmailInput] = useState('');
+    const [emailError, setEmailError] = useState(false);
 
     const handleEmailInputChange = (event) => {
         setEmailInput(event.target.value);
     };
 
     const handleAddEmail = () => {
-        if (!selectedCalendar || !emailInput) {
-            // Manejar caso en el que no se ha seleccionado un calendario o no se ha ingresado un correo electrónico
+        if (!selectedCalendar || !emailInput || !isValidEmail(emailInput)) {
+            setEmailError(true); // Establecer el estado del error de correo electrónico
             return;
         }
+
+        setEmailError(false); // Reiniciar el estado del error de correo electrónico
 
         // Emitir un evento para conectar con el servidor
         compartirCalendario(selectedCalendar, emailInput);
@@ -38,6 +41,11 @@ export default function Calendar({ isOpen, handleClose }) {
         setEmailInput('');
 
         handleClose(false);
+    };
+
+    const isValidEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
     };
 
     return (
@@ -89,11 +97,13 @@ export default function Calendar({ isOpen, handleClose }) {
                                 </TableCell>
                                 <TableCell style={{ padding: 12 }}>
                                     <TextField
+                                       type='email'
                                         style={{ marginRight: 10 }}
                                         label="Correo electrónico"
                                         variant="outlined"
                                         value={emailInput}
                                         onChange={handleEmailInputChange}
+                                        error={emailError} // Establecer el error de correo electrónico
                                     />
                                     <Button style={{ marginTop: 10 }} variant="contained" onClick={handleAddEmail}>Agregar</Button>
                                 </TableCell>
