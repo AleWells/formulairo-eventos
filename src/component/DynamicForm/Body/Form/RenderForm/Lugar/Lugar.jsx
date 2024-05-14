@@ -2,16 +2,38 @@ import { Box, Typography, TextField, MenuItem , Button } from '@mui/material'
 import styles from './Lugar.module.css'
 import {useDispatch,useSelector} from 'react-redux'
 import { updateForm } from "../../../../../../redux/slice.js";
+import {obtenerEventos} from '../../../../../../socket.js'
 function Lugar ({handle}){
     const dispatch = useDispatch();
     const formData = useSelector((state)=>state.data.form);
+    const {calendarios} = useSelector((state)=>state.data);
     const handleChangeSelect = (e)=>{
         const {value,name} = e.target;
         dispatch(updateForm({ ...formData, home: {...formData.home,[name]: value } }));
+
       }
-   const handleChangeSection = ()=>{
-    handle('Home')
-   }
+      const handleChangeSection = () => {
+        // Buscar el ID del calendario correspondiente al lugar seleccionado
+        const lugarSeleccionado = formData.home.lugar;
+        let calendar = null;
+        switch(lugarSeleccionado){
+          case "Otro": 
+           calendar = calendarios.find((el)=>el.summary ==="Otro")
+          break
+          case "CampoDeporte":
+           calendar = calendarios.find((el)=>el.summary ==="Campo de Deporte")
+          break
+          case "Tinglado":
+           calendar = calendarios.find((el)=>el.summary ==="Tinglado")
+          break
+          case "Teatro": 
+          calendar = calendarios.find((el)=>el.summary ==="Teatro")
+          break
+        }
+       
+        obtenerEventos(calendar.id)
+        handle('Home');
+    }
     return <Box className={styles.lugar}>
 
         <Typography variant='h6' textAlign='center'>¡Bienvenidos!</Typography>
@@ -35,7 +57,7 @@ function Lugar ({handle}){
         onChange={handleChangeSelect}
         value={formData?.home.lugar || ''}
         fullWidth 
-        defaultValue="Otro"
+       
         required
         helperText='Una vez seleccionado el Lugar, completa el formulario correspondiente ingresando desde el botón de abajo.'
       >

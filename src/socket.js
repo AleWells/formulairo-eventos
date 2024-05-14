@@ -2,6 +2,7 @@ import io from "socket.io-client";
 // importo las alertas
 import {alertSetFormOk,alertDeleteFormPending,alertSendFormOk,alertCompartido} from './services.js'
 import {uploadUser, uploadForms, uploadCalendario} from './redux/slice.js'
+import { identity } from "@fullcalendar/core/internal";
 let socket;
 const apiUrlDeploy = import.meta.env.VITE_URL_API_DEPLOY;
 const apiUrlDev = import.meta.env.VITE_URL_API_DEV;
@@ -75,9 +76,13 @@ export const apiCalendar = ()=>{
 
 
 export const listenerCalendar = (dispatch)=>{
-  socket.on("API",(data)=>{
+  socket.on("apiCalendar",(data)=>{
     if(data.calendarios){
       dispatch(uploadCalendario(data.calendarios))
+    }
+    if(data.listadoEventos){
+      console.log("llegan eventos")
+      console.log(data.listadoEventos)
     }
   
   })
@@ -87,13 +92,15 @@ export const listenerCalendar = (dispatch)=>{
 export const compartirCalendario = (id,email) =>{
   socket.emit('apiCalendar',{compartir:{id,email}})
 }
+ 
 
 
-
-// 
-
+// evento para realizar la petición de los eventos del calendario seleccionado.
 
 
+export const obtenerEventos = (id)=>{
+  socket.emit('getEvents',id);
+}
 
 
 
