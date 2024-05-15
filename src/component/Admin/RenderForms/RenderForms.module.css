@@ -1,6 +1,6 @@
 /* styles.module.css */
 .whiteText {
-    color: white; /* Color blanco para el texto */
+    color: white !important; /* Color blanco para el texto */
 }
 .tablecontainer {
     width: 100%;
@@ -59,13 +59,13 @@
 }
 
 .pendiente {
-    color: orange; /* Color naranja para estado "PENDIENTE" */
+    color: orange !important; /* Color naranja para estado "PENDIENTE" */
 }
 
 .aceptado {
-    color: green; /* Color verde para estado "ACEPTADO" */
+    color: green !important; /* Color verde para estado "ACEPTADO" */
 }
 
 .rechazado {
-    color: red; /* Color rojo para estado "RECHAZADO" */
+    color: red !important; /* Color rojo para estado "RECHAZADO" */
 }
