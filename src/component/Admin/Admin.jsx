@@ -7,10 +7,13 @@ import {  useEffect, useState } from 'react';
 import CreateUser from './CreateUser/CreateUser';
 import Caledar from './Calendar/Calendar';
 import {obtenerRegistros} from '../../socket'
+import RenderForms from './RenderForms/RenderForms'
+import { useSelector } from 'react-redux';
 const Admin = ()=>{
 
     const [open,setOpen] = useState(false)
     const [openCalendar,setOpenCalendar] = useState(false);
+    const {allForms} = useSelector(state=>state.data)
 
     const handleAdd = ()=>{
         setOpen(true)
@@ -32,10 +35,15 @@ return <Box>
         <CalendarMonthIcon/>
          Calendarios
       </Fab>
-      
+
+     {allForms&&<RenderForms allForms={allForms}/>}
+
+
+
       
     <CreateUser isOpen={open} handleClose={setOpen}/>
     <Caledar isOpen={openCalendar} handleClose={setOpenCalendar}/>
+
 </Box>
 }
 
