@@ -9,6 +9,7 @@ import Caledar from './Calendar/Calendar';
 import {obtenerRegistros} from '../../socket'
 import RenderForms from './RenderForms/RenderForms'
 import { useSelector } from 'react-redux';
+import LoaderDash from '../LoaderDash/LoaderDash'
 const Admin = ()=>{
 
     const [open,setOpen] = useState(false)
@@ -37,7 +38,7 @@ return <Box>
       </Fab>
 
      {allForms&&<RenderForms allForms={allForms}/>}
-
+     {!allForms&&<LoaderDash/>}
 
 
       
