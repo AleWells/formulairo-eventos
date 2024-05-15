@@ -12,13 +12,14 @@ function Lugar ({handle}){
         dispatch(updateForm({ ...formData, home: {...formData.home,[name]: value } }));
 
       }
+
       const handleChangeSection = () => {
         // Buscar el ID del calendario correspondiente al lugar seleccionado
         const lugarSeleccionado = formData.home.lugar;
         let calendar = null;
         switch(lugarSeleccionado){
           case "Otro": 
-           calendar = calendarios.find((el)=>el.summary ==="Otro")
+           calendar = calendarios.find((el)=>el.summary ==="Otros")
           break
           case "CampoDeporte":
            calendar = calendarios.find((el)=>el.summary ==="Campo de Deporte")
@@ -57,7 +58,6 @@ function Lugar ({handle}){
         onChange={handleChangeSelect}
         value={formData?.home.lugar || ''}
         fullWidth 
-       
         required
         helperText='Una vez seleccionado el Lugar, completa el formulario correspondiente ingresando desde el botón de abajo.'
       >

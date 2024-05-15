@@ -5,6 +5,8 @@ const initialState = {
   forms:null,
   form: estructuraFormulario,
   calendarios:null,
+  calendarioSelecionado:null,
+  allForms:null,
 }
 
 export const stateSlice = createSlice({
@@ -23,10 +25,23 @@ export const stateSlice = createSlice({
     },
     uploadCalendario:(state,action)=>{
       state.calendarios = action.payload
+    },
+    uploadCalendarioSelecionado:(state,action)=>{
+      state.calendarioSelecionado = action.payload
+    },
+    uploadAllForms:(state,action)=>{
+      state.allForms =  action.payload
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { uploadUser,uploadForms,updateForm,uploadCalendario } = stateSlice.actions
+export const { 
+  uploadUser,
+  uploadForms,
+  updateForm,
+  uploadCalendario,
+  uploadCalendarioSelecionado ,
+  uploadAllForms
+} = stateSlice.actions
 export default stateSlice.reducer

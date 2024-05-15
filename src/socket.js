@@ -1,7 +1,12 @@
 import io from "socket.io-client";
 // importo las alertas
 import {alertSetFormOk,alertDeleteFormPending,alertSendFormOk,alertCompartido} from './services.js'
-import {uploadUser, uploadForms, uploadCalendario} from './redux/slice.js'
+import {
+  uploadUser,
+   uploadForms,
+    uploadCalendario,
+    uploadCalendarioSelecionado,
+    uploadAllForms} from './redux/slice.js'
 import { identity } from "@fullcalendar/core/internal";
 let socket;
 const apiUrlDeploy = import.meta.env.VITE_URL_API_DEPLOY;
@@ -73,7 +78,7 @@ export const apiCalendar = ()=>{
  
 
 
-
+// Listener para los eventos de calendario que manda el servidor
 
 export const listenerCalendar = (dispatch)=>{
   socket.on("apiCalendar",(data)=>{
@@ -81,10 +86,12 @@ export const listenerCalendar = (dispatch)=>{
       dispatch(uploadCalendario(data.calendarios))
     }
     if(data.listadoEventos){
-      console.log("llegan eventos")
+     
       console.log(data.listadoEventos)
     }
-  
+    if(data.listadoRegistros){
+      dispatch(uploadAllForms(data.listadoRegistros))
+    }
   })
 }
 
@@ -103,7 +110,10 @@ export const obtenerEventos = (id)=>{
 }
 
 
-
+// Obtener  todos los eventos creado
+export const obtenerRegistros = ()=>{
+  socket.emit('getRegistros');
+}
 
 
 

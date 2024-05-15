@@ -47,9 +47,7 @@ export default function HomeForm({handle}) {
   }
 return (
     <Box className={styles.home}>
-      <Box>
-        <ViewCalendar/>
-      </Box>
+
    
 
 
@@ -135,7 +133,9 @@ label='Nombre del Evento'
 
 
    
-      
+<Box  className={styles.calendar}>
+<ViewCalendar/>
+</Box>
 
     </Box>
   );

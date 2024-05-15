@@ -3,9 +3,10 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Unlog from '../Index/Unlog/Unlog';
-import {  useState } from 'react';
+import {  useEffect, useState } from 'react';
 import CreateUser from './CreateUser/CreateUser';
 import Caledar from './Calendar/Calendar';
+import {obtenerRegistros} from '../../socket'
 const Admin = ()=>{
 
     const [open,setOpen] = useState(false)
@@ -17,6 +18,10 @@ const Admin = ()=>{
     const handleCalendar = ()=>{
         setOpenCalendar(true)
     }
+
+     useEffect(()=>{
+        obtenerRegistros();
+     },[])
 return <Box>
     <Unlog/>
     <Fab variant="extended" size='large' color="primary" style={{marginTop:'50px'}} onClick={handleAdd}>
