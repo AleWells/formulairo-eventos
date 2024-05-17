@@ -17,7 +17,7 @@ const Admin = ()=>{
     const [openCalendar,setOpenCalendar] = useState(false);
     const {allForms} = useSelector(state=>state.data)
     const [id,setId] = useState(null);
-    const form = allForms.find(e=>e.id==id)
+    const form = allForms?.find(e=>e.id==id)
      const handleView = (id)=>{
 
         setId(id);

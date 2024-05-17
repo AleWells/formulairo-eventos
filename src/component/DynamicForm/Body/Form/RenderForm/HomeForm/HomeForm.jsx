@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateForm } from "../../../../../../redux/slice.js";
 import styles from './HomeForm.module.css'
 import ViewCalendar  from '../../../../../ViewCalendar/ViewCalendar'
+import { useEffect } from "react";
 export default function HomeForm({handle}) {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.data.form);
@@ -45,6 +46,15 @@ export default function HomeForm({handle}) {
     }
     return false; // Si alguna propiedad está ausente o tiene un valor falsy, retorna false
   }
+
+
+
+  useEffect(() => {
+    dispatch(updateForm({ ...formData, home: { ...formData.home, email: user.email, nombreCompleto: user.name } }));
+  }, []);
+
+
+
 return (
     <Box className={styles.home}>
 
@@ -133,9 +143,9 @@ label='Nombre del Evento'
 
 
    
-<Box  className={styles.calendar}>
+{/* <Box  className={styles.calendar}>
 <ViewCalendar/>
-</Box>
+</Box> */}
 
     </Box>
   );

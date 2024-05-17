@@ -14,7 +14,7 @@ export default function RenderForms({ allForms,handleView }) {
                             <TableCell className={styles.whiteText}>Nombre del Usuario</TableCell>
                             <TableCell className={styles.whiteText}>Fecha</TableCell>
                             <TableCell className={styles.whiteText}>Estado</TableCell>
-                            <TableCell className={styles.whiteText}>Ver Formulario</TableCell>
+                            <TableCell className={styles.whiteText}>Formulario</TableCell>
                             <TableCell className={styles.whiteText}>Acciónes</TableCell>
                         </TableRow>
                     </TableHead>
