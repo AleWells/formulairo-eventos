@@ -39,7 +39,8 @@ export default function HomeForm({handle}) {
         objeto.nombreEvento &&
         objeto.sector &&
         objeto.fecha &&
-        objeto.hora
+        objeto.horaInicio &&
+        objeto.horaFinal
       ) {
         return true; // Si todas las propiedades tienen algún valor, retorna true
       }
@@ -125,18 +126,30 @@ label='Nombre del Evento'
     </Box>
     <Box  sx={{display:'flex', alignItems:'center',gap:'10px',width:'100%'}}>
       <Typography>
-       Hora
+       Inicio
       </Typography>
     <TextField
-    id="hora"
+    id="horaInicio"
     type='time'
-    value={formData.home.hora || ""}
+    value={formData.home.horaInicio || ""}
     onChange={handleChange}
     fullWidth
     required
     />
     </Box>
-
+    <Box  sx={{display:'flex', alignItems:'center',gap:'10px',width:'100%'}}>
+      <Typography>
+       Final
+      </Typography>
+    <TextField
+    id="horaFinal"
+    type='time'
+    value={formData.home.horaFinal || ""}
+    onChange={handleChange}
+    fullWidth
+    required
+    />
+    </Box>
     {todosLosCamposLlenos(datosHome) && <Box >
         <Button variant='outlined' onClick={handleButton}>Siguiente</Button>
       </Box>}
