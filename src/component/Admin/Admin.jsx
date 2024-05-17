@@ -10,8 +10,9 @@ import {obtenerRegistros} from '../../socket'
 import RenderForms from './RenderForms/RenderForms'
 import { useSelector } from 'react-redux';
 import LoaderDash from '../LoaderDash/LoaderDash'
+import View from './View/View'
 const Admin = ()=>{
-
+    const [openView,setOpenView] = useState(false)
     const [open,setOpen] = useState(false)
     const [openCalendar,setOpenCalendar] = useState(false);
     const {allForms} = useSelector(state=>state.data)
@@ -44,7 +45,7 @@ return <Box>
       
     <CreateUser isOpen={open} handleClose={setOpen}/>
     <Caledar isOpen={openCalendar} handleClose={setOpenCalendar}/>
-
+     <View isOpen={openView} handleClose={setOpenView}/>
 </Box>
 }
 
