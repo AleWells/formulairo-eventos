@@ -16,14 +16,20 @@ const Admin = ()=>{
     const [open,setOpen] = useState(false)
     const [openCalendar,setOpenCalendar] = useState(false);
     const {allForms} = useSelector(state=>state.data)
+    const [id,setId] = useState(null);
+    const form = allForms.find(e=>e.id==id)
+     const handleView = (id)=>{
 
+        setId(id);
+        setOpenView(true);
+     }
     const handleAdd = ()=>{
         setOpen(true)
     }
     const handleCalendar = ()=>{
         setOpenCalendar(true)
     }
-
+ 
      useEffect(()=>{
         obtenerRegistros();
      },[])
@@ -38,14 +44,14 @@ return <Box>
          Calendarios
       </Fab>
 
-     {allForms&&<RenderForms allForms={allForms}/>}
+     {allForms&&<RenderForms allForms={allForms} handleView={handleView} />}
      {!allForms&&<LoaderDash/>}
 
 
       
     <CreateUser isOpen={open} handleClose={setOpen}/>
     <Caledar isOpen={openCalendar} handleClose={setOpenCalendar}/>
-     <View isOpen={openView} handleClose={setOpenView}/>
+    <View isOpen={openView} handleClose={setOpenView} form={form} />
 </Box>
 }
 

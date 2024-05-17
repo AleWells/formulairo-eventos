@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import styles from './RenderForms.module.css'; // Importamos el CSS
 
-export default function RenderForms({ allForms }) {
+export default function RenderForms({ allForms,handleView }) {
     return (
         <Box className={styles.tablecontainer}> {/* Agregamos la clase del contenedor */}
             <h2 className={styles.tabletitle}>Formularios</h2> {/* Agregamos la clase del título */}
@@ -14,6 +14,7 @@ export default function RenderForms({ allForms }) {
                             <TableCell className={styles.whiteText}>Nombre del Usuario</TableCell>
                             <TableCell className={styles.whiteText}>Fecha</TableCell>
                             <TableCell className={styles.whiteText}>Estado</TableCell>
+                            <TableCell className={styles.whiteText}>Ver Formulario</TableCell>
                             <TableCell className={styles.whiteText}>Acciónes</TableCell>
                         </TableRow>
                     </TableHead>
@@ -24,7 +25,9 @@ export default function RenderForms({ allForms }) {
                                 <TableCell>{form.nameUser}</TableCell>
                                 <TableCell>{form.data.home.fecha}</TableCell>
                                 <TableCell className={styles[form.estado.toLowerCase()]}>{form.estado}</TableCell> {/* Agregamos la clase dinámica para el estado */}
-                                   <TableCell >{form.estado==="PENDIENTE"?<Button>Aceptar</Button>:"Aceptado"}</TableCell> 
+                                <TableCell >{<Button onClick={()=>{handleView(form.id)}}>Abrir</Button>}</TableCell>
+                                <TableCell >{form.estado==="PENDIENTE"?<Button>Aceptar</Button>:"Aceptado"}</TableCell> 
+
                             </TableRow>
                         ))}
                     </TableBody>
