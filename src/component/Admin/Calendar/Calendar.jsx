@@ -89,7 +89,7 @@ export default function Calendar({ isOpen, handleClose }) {
                                             onChange={(event) => setSelectedCalendar(event.target.value)}
                                             label="Seleccionar Calendario"
                                         >
-                                            {calendarios.map((calendar) => (
+                                            {calendarios?.map((calendar) => (
                                                 <MenuItem key={calendar.id} value={calendar.id}>{calendar.summary}</MenuItem>
                                             ))}
                                         </Select>

@@ -116,7 +116,10 @@ export const obtenerRegistros = ()=>{
 }
 
 
-
+// solicitud de confirmaciond e evento para agregar al calendario
+export const confirmEvent = (id)=>{
+  socket.emit('confirmEvent',id)
+}
 
 
 

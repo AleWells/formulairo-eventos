@@ -128,3 +128,15 @@ export function alertCompartido(){
   })
   
 }
+
+export function aceptarEvento(){
+  return Swal.fire({
+    title: "¿Confirmar evento?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#0c3f5c",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Aceptar",
+    cancelButtonText: 'Cancelar'
+  })
+}

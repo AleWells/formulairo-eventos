@@ -15,7 +15,7 @@ import logo from '../../../images/encabezado-wellspring.png';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import styles from './Unlog.module.css'
-import { useState } from "react";
+import {  useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 export default function Unlog(){
   const navigate = useNavigate();
@@ -36,6 +36,9 @@ export default function Unlog(){
     location.reload()
     
   }
+
+
+
     return(<AppBar position="static">
       <Toolbar>
   <Box className={styles.contenedor}>
@@ -56,7 +59,7 @@ export default function Unlog(){
   onClick={handleClick}
   >
     <AccountCircleIcon className={styles.icon}/>
-    <Typography className={styles.textIcon}>{user.name}</Typography>
+    <Typography className={styles.textIcon}>{user && user.name}</Typography>
     </IconButton>
     <Menu
         id="demo-positioned-menu"
@@ -78,7 +81,7 @@ export default function Unlog(){
         <LogoutIcon/>
            Cerrar Sesión
         </MenuItem>
-      {user.email==='admin@wellspring.edu.ar'?
+      {user?.email==='admin@wellspring.edu.ar'?
       <MenuItem onClick={()=>{navigate('/admin')}}>
       <AdminPanelSettingsIcon/>
       Consola

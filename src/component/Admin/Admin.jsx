@@ -8,16 +8,20 @@ import CreateUser from './CreateUser/CreateUser';
 import Caledar from './Calendar/Calendar';
 import {obtenerRegistros} from '../../socket'
 import RenderForms from './RenderForms/RenderForms'
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import LoaderDash from '../LoaderDash/LoaderDash'
 import View from './View/View'
+import { useNavigate } from "react-router-dom";
+
 const Admin = ()=>{
+   const navigate = useNavigate();
     const [openView,setOpenView] = useState(false)
     const [open,setOpen] = useState(false)
     const [openCalendar,setOpenCalendar] = useState(false);
-    const {allForms} = useSelector(state=>state.data)
+    const {allForms,user} = useSelector(state=>state.data)
     const [id,setId] = useState(null);
     const form = allForms?.find(e=>e.id==id)
+
      const handleView = (id)=>{
 
         setId(id);
@@ -31,6 +35,9 @@ const Admin = ()=>{
     }
  
      useEffect(()=>{
+        if(user===null){
+            navigate('/');
+        }
         obtenerRegistros();
      },[])
 return <Box>

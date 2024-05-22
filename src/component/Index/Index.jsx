@@ -13,7 +13,7 @@ export default function Index (){
    useEffect(()=>{
     // inicio  socket y otras configuraciones 
       authListener(dispatch);
-      
+     
    },[])
  
     return(<Box sx={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
