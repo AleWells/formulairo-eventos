@@ -32,8 +32,10 @@ const handleView = (id)=>{
       <table className={styles.table}>
         <thead>
           <tr>
-            <th>ID</th>
+            
             <th>Fecha de evento</th>
+            <th>Nombre Evento</th>
+            <th>Lugar</th>
             <th>Hora Inicio</th>
             <th>Estado</th>
             <th>Ver fomulario</th>
@@ -47,13 +49,10 @@ const handleView = (id)=>{
               key={form.id}
                 className={form.pending ? styles.pendingRow : null}
                 >
-                <td>
-            
-                {form.id}
-                </td>
-               
                 <td>{form.data.home.fecha}</td>
-                <td>{form.data.home.hora}</td>
+                <td>{form.nameEvento}</td>
+                <td>{form.data.home.lugar}</td>
+                <td>{form.data.home.horaInicio}</td>
                 <td className={` ${form.estado === 'PENDIENTE' ? styles.pendiente : form.estado === 'ACEPTADO' ? styles.aceptado : styles.rechazado}`}>
   {form.estado}
 </td>
