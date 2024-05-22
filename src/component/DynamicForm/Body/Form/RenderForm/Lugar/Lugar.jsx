@@ -31,7 +31,8 @@ function Lugar ({handle}){
           calendar = calendarios.find((el)=>el.summary ==="Teatro")
           break
         }
-       
+        console.log("llega acá")
+       console.log(calendar.id)
         obtenerEventos(calendar.id)
         handle('Home');
     }
