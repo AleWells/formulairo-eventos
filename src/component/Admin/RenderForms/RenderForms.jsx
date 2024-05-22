@@ -4,12 +4,12 @@ import styles from './RenderForms.module.css'; // Importamos el CSS
 import {aceptarEvento,alertPending} from '../../../services'
 import {confirmEvent} from '../../../socket'
 export default function RenderForms({ allForms, handleView }) {
-    const handleConfirmEvent = (id)=>{
+    const handleConfirmEvent = (form)=>{
         aceptarEvento().then((result)=>{
             if(result.isConfirmed){
                  
                 alertPending();
-                confirmEvent(id);
+                confirmEvent(form);
             }
         });
     }
@@ -39,7 +39,7 @@ export default function RenderForms({ allForms, handleView }) {
                                     <Button onClick={() => { handleView(form.id); }}>Abrir</Button>
                                 </TableCell>
                                 <TableCell>
-                                    {form.estado === "PENDIENTE" ? <Button onClick={()=>{handleConfirmEvent(form.id)}}>Aceptar</Button> : "Aceptado"}
+                                    {form.estado === "PENDIENTE" ? <Button onClick={()=>{handleConfirmEvent(form)}}>Aceptar</Button> : "Aceptado"}
                                 </TableCell>
                             </TableRow>
                         ))}
