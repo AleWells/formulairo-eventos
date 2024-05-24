@@ -98,8 +98,12 @@ export const listenerCalendar = (dispatch)=>{
     }
     if(data.listadoEventos){
      
-     
+     if(data.listadoEventos.data){
       dispatch(uploadEventosCalendarioSeleccionado(data.listadoEventos.data));
+     }else{
+      dispatch(uploadEventosCalendarioSeleccionado(null));
+     }
+     
 
     }
     if(data.listadoRegistros){
