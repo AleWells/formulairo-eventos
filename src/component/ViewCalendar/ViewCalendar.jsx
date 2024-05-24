@@ -1,22 +1,43 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import FullCalendar from '@fullcalendar/react';
-import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { Box } from '@mui/material';
-export default function ViewCalendar(data) {
-  const events = data.map(item => ({
+
+export default function ViewCalendar({ data }) {
+  const calendarRef = useRef(null);
+
+  const events = data?.map(item => ({
     title: item.summary,
-    date: item.start.dateTime.split('T')[0], // Extraer la fecha en formato 'YYYY-MM-DD'
+    date: item.start.dateTime.split('T')[0],
   }));
-return(
-  <Box>
-    <FullCalendar
-     plugins={[dayGridPlugin]}
-     initialView='dayGridMonth'
-     weekends={false}
-     events={events}
-    
-    />
-  </Box>
-);
+
+  const handleDateClick = (info) => {
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.changeView('dayGridDay', info.dateStr);
+  };
+
+  const handleViewMonthClick = () => {
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.changeView('dayGridMonth');
+  };
+
+  return (
+    <Box>
+      <FullCalendar
+        ref={calendarRef}
+        plugins={[dayGridPlugin, interactionPlugin]}
+        initialView='dayGridMonth'
+        weekends={true}
+        events={events}
+        dateClick={handleDateClick}
+     
+        headerToolbar={{
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,dayGridWeek,dayGridDay',
+        }}
+      />
+    </Box>
+  );
 }

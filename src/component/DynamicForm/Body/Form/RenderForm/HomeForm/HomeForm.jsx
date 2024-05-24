@@ -8,7 +8,7 @@ export default function HomeForm({handle}) {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.data.form);
   const datosHome = useSelector((state)=>state.data.form.home)
-  const {user} = useSelector((state)=>state.data);
+  const {user,eventosCalendarioSeleccionado} = useSelector((state)=>state.data);
   const handleChange = (e) => {
     const { value, id } = e.target;
     dispatch(updateForm({ ...formData, home: {...formData.home,[id]: value } }));
@@ -150,15 +150,21 @@ label='Nombre del Evento'
     required
     />
     </Box>
+
+
+ 
+  
+   
+
     {todosLosCamposLlenos(datosHome) && <Box >
         <Button variant='outlined' onClick={handleButton}>Siguiente</Button>
       </Box>}
 
 
    
-{/* <Box  className={styles.calendar}>
-<ViewCalendar/>
-</Box> */}
+<Box  className={styles.calendar}>
+<ViewCalendar data={eventosCalendarioSeleccionado}/>
+</Box>
 
     </Box>
   );
