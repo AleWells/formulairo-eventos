@@ -13,6 +13,8 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function Calendar({ isOpen, handleClose }) {
     const { calendarios } = useSelector(state => state.data);
     const handleCloseButton = () => {
+        setSelectedCalendar('');
+        setEmailInput('');
         handleClose(false);
     };
 
@@ -54,7 +56,10 @@ export default function Calendar({ isOpen, handleClose }) {
         }else{
             eliminarEventos(selectedCalendar)
             alertPending();
+            setSelectedCalendar('');
+            setEmailInput('');    
             handleClose(false);
+
         }
     }
     return (
