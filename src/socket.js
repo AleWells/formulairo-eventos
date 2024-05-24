@@ -11,6 +11,7 @@ import {
    uploadForms,
     uploadCalendario,
     uploadCalendarioSelecionado,
+    uploadEventosCalendarioSeleccionado,
     uploadAllForms} from './redux/slice.js'
 import { identity } from "@fullcalendar/core/internal";
 let socket;
@@ -97,7 +98,9 @@ export const listenerCalendar = (dispatch)=>{
     }
     if(data.listadoEventos){
      
-      console.log(data.listadoEventos)
+     
+      dispatch(uploadEventosCalendarioSeleccionado(data.listadoEventos.data));
+
     }
     if(data.listadoRegistros){
       dispatch(uploadAllForms(data.listadoRegistros))

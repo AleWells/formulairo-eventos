@@ -3,7 +3,7 @@ import { Dialog ,  Slide ,AppBar, Toolbar, IconButton} from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import RenderForm from './RenderForm/RenderForm';
 import { useDispatch , useSelector} from "react-redux";
-import { updateForm,uploadCalendarioSelecionado } from '../../../../redux/slice.js'
+import { updateForm,uploadCalendarioSelecionado,uploadEventosCalendarioSeleccionado } from '../../../../redux/slice.js'
 import { estructuraFormulario } from '../../../../redux/service';
 import { useNavigate } from 'react-router-dom';
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -22,6 +22,7 @@ export default function Form({isOpen,handleClose}){
     const handlerExit = ()=>{
        handleClose(false)   
        dispatch( uploadCalendarioSelecionado(null));
+       dispatch(uploadEventosCalendarioSeleccionado(null))
        dispatch(updateForm(resetForm()))
        navigate('/');
        
