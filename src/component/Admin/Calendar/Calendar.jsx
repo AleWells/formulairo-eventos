@@ -2,8 +2,9 @@ import { Dialog, Slide, AppBar, IconButton, Toolbar, Table, TableBody, TableCell
 import CloseIcon from '@mui/icons-material/Close';
 import React, { useState } from 'react';
 import styles from './Calendar.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { compartirCalendario,eliminarEventos } from '../../../socket';
+import {uploadCalendarioSelecionado} from '../../../redux/slice'
 import { alertPending } from '../../../services';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -11,6 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 });
 
 export default function Calendar({ isOpen, handleClose }) {
+    const dispatch = useDispatch();
     const { calendarios } = useSelector(state => state.data);
     const handleCloseButton = () => {
         setSelectedCalendar('');
@@ -62,6 +64,14 @@ export default function Calendar({ isOpen, handleClose }) {
 
         }
     }
+
+    const handleSelectCalendar = (e)=>{
+         setSelectedCalendar(e.target.value);
+         const idCalendario = e.target.value;
+         const calendario =  calendarios.find(e=>e.id===idCalendario)
+         dispatch(uploadCalendarioSelecionado(calendario))
+         
+    }
     return (
         <React.Fragment>
             <Dialog
@@ -102,7 +112,7 @@ export default function Calendar({ isOpen, handleClose }) {
                                             labelId="calendar-selector-label"
                                             id="calendar-selector"
                                             value={selectedCalendar}
-                                            onChange={(event) => setSelectedCalendar(event.target.value)}
+                                            onChange={handleSelectCalendar}
                                             label="Seleccionar Calendario"
                                         >
                                             {calendarios?.map((calendar) => (
