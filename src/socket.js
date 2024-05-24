@@ -1,6 +1,7 @@
 import io from "socket.io-client";
 // importo las alertas
 import {alertSetFormOk,
+  alertDeleteEventsOk,
   alertDeleteFormPending,
   alertSendFormOk,
   alertCompartido,
@@ -100,6 +101,9 @@ export const listenerCalendar = (dispatch)=>{
     }
     if(data.listadoRegistros){
       dispatch(uploadAllForms(data.listadoRegistros))
+    }
+    if(data.alertDeleteEventsOk){
+      alertDeleteEventsOk();
     }
   
   })

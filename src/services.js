@@ -152,3 +152,15 @@ export function alertConfirmacionEventoOk(){
     timer: 3000
   })
 }
+
+export function  alertDeleteEventsOk (){
+  return Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: 'Eventos eliminados correctamente',
+    timerProgressBar: true,
+    showConfirmButton: false,
+    timer: 3000
+  })
+}
