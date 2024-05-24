@@ -3,11 +3,11 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction';
 import { Box } from '@mui/material';
-export default function ViewCalendar() {
- const  events =[
-  { title: 'Evento en teatro', date: '2024-05-15' },
-  { title: 'Evento en Tinglado', date: '2024-05-02' }
-];
+export default function ViewCalendar(data) {
+  const events = data.map(item => ({
+    title: item.summary,
+    date: item.start.dateTime.split('T')[0], // Extraer la fecha en formato 'YYYY-MM-DD'
+  }));
 return(
   <Box>
     <FullCalendar
