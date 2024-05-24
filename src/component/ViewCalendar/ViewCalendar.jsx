@@ -17,10 +17,7 @@ export default function ViewCalendar({ data }) {
     calendarApi.changeView('dayGridDay', info.dateStr);
   };
 
-  const handleViewMonthClick = () => {
-    const calendarApi = calendarRef.current.getApi();
-    calendarApi.changeView('dayGridMonth');
-  };
+
 
   return (
     <Box>

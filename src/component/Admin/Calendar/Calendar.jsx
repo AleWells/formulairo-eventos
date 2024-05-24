@@ -1,4 +1,4 @@
-import { Dialog, Slide, AppBar, IconButton, Toolbar, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Button, MenuItem, Select, FormControl, InputLabel } from '@mui/material';
+import { Dialog, Slide, AppBar, IconButton, Toolbar, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Button, MenuItem, Select, FormControl, InputLabel,Box } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import React, { useState } from 'react';
 import styles from './Calendar.module.css';
@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { compartirCalendario,eliminarEventos,obtenerEventos } from '../../../socket';
 import {uploadCalendarioSelecionado,uploadEventosCalendarioSeleccionado} from '../../../redux/slice'
 import { alertPending } from '../../../services';
+import ViewCalendar from '../../ViewCalendar/ViewCalendar';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -13,7 +14,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function Calendar({ isOpen, handleClose }) {
     const dispatch = useDispatch();
-    const { calendarios } = useSelector(state => state.data);
+    const { calendarios , eventosCalendarioSeleccionado} = useSelector(state => state.data);
     const handleCloseButton = () => {
         setSelectedCalendar('');
         setEmailInput('');
@@ -95,7 +96,8 @@ export default function Calendar({ isOpen, handleClose }) {
                         </IconButton>
                     </Toolbar>
                 </AppBar>
-                <TableContainer>
+                  <Box>
+                  <TableContainer>
                     <Table>
                         <TableHead>
                             <TableRow>
@@ -140,6 +142,10 @@ export default function Calendar({ isOpen, handleClose }) {
                         </TableBody>
                     </Table>
                 </TableContainer>
+                    </Box>  
+                 <Box className={styles.calendar}>
+                    <ViewCalendar data={eventosCalendarioSeleccionado}/>
+                </Box>
             </Dialog>
         </React.Fragment>
     );

@@ -1,0 +1,5 @@
+.calendar{
+    width: 800px; /* Ajusta el ancho del contenedor del calendario según sea necesario */
+    margin: 0 auto; /* Centra el contenedor horizontalmente en la pantalla */
+    padding: 20px; /* Añade espacio alrededor del calendario */
+}
