@@ -131,7 +131,12 @@ export const confirmEvent = (id)=>{
   socket.emit('confirmEvent',id)
 }
 
+// eliminar eventos de un calendario
 
+export const eliminarEventos = (id)=>{
+
+  socket.emit('eliminarEventos',id);
+}
 
 // export const listenerForms = (dispatch,action)=>{
 //   socket.on('forms',(value)=>{

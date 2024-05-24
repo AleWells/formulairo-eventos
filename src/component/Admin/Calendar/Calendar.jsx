@@ -3,7 +3,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import React, { useState } from 'react';
 import styles from './Calendar.module.css';
 import { useSelector } from 'react-redux';
-import { compartirCalendario } from '../../../socket';
+import { compartirCalendario,eliminarEventos } from '../../../socket';
 import { alertPending } from '../../../services';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -48,6 +48,15 @@ export default function Calendar({ isOpen, handleClose }) {
         return emailRegex.test(email);
     };
 
+    const handleConfirmEvent = ()=>{
+        if (!selectedCalendar){
+            console.log("calendario no seleccionado")
+        }else{
+            eliminarEventos(selectedCalendar)
+            alertPending();
+            handleClose(false);
+        }
+    }
     return (
         <React.Fragment>
             <Dialog
@@ -109,7 +118,7 @@ export default function Calendar({ isOpen, handleClose }) {
                                     />
                                     <Button style={{ marginTop: 10 }} variant="contained" onClick={handleAddEmail}>Agregar</Button>
                                 </TableCell>
-                                <TableCell><Button>Eliminar</Button></TableCell>
+                                <TableCell><Button onClick={handleConfirmEvent}>Eliminar</Button></TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
