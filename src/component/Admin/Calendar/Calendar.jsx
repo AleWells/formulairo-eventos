@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import styles from './Calendar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { compartirCalendario,eliminarEventos,obtenerEventos } from '../../../socket';
-import {uploadCalendarioSelecionado} from '../../../redux/slice'
+import {uploadCalendarioSelecionado,uploadEventosCalendarioSeleccionado} from '../../../redux/slice'
 import { alertPending } from '../../../services';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -13,11 +13,12 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function Calendar({ isOpen, handleClose }) {
     const dispatch = useDispatch();
-    const { calendarios ,calendarioSelecionado} = useSelector(state => state.data);
+    const { calendarios } = useSelector(state => state.data);
     const handleCloseButton = () => {
         setSelectedCalendar('');
         setEmailInput('');
-        dispatch(uploadCalendarioSelecionado(null))
+        dispatch(uploadCalendarioSelecionado(null));
+        dispatch(uploadEventosCalendarioSeleccionado(null));
         handleClose(false);
     };
 
@@ -40,10 +41,11 @@ export default function Calendar({ isOpen, handleClose }) {
         // Emitir un evento para conectar con el servidor
         compartirCalendario(selectedCalendar, emailInput);
         alertPending();
-
         // Limpiar campos después de agregar el correo electrónico
         setSelectedCalendar('');
         setEmailInput('');
+        dispatch(uploadCalendarioSelecionado(null));
+        dispatch(uploadEventosCalendarioSeleccionado(null));
         handleClose(false);
     };
 
