@@ -9,7 +9,9 @@ export default function ViewCalendar({ data }) {
 
   const events = data?.map(item => ({
     title: item.summary,
-    date: item.start.dateTime.split('T')[0],
+    start: item.start.dateTime,
+    end: item.end.dateTime,
+    description: item.location,
   }));
 
   const handleDateClick = (info) => {
