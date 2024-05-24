@@ -50,6 +50,11 @@ export const listenerUser = (email,dispatch)=>{
       alertSetFormOk()
     }
 
+    // evento confirmación de evento
+    if(data.alertConfirmEvent){
+      
+    }
+
 
   })
 }

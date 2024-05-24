@@ -53,7 +53,7 @@ const handleView = (id)=>{
                 <td>{form.nameEvento}</td>
                 <td>{form.data.home.lugar}</td>
                 <td>{form.data.home.horaInicio}</td>
-                <td className={` ${form.estado === 'PENDIENTE' ? styles.pendiente : form.estado === 'ACEPTADO' ? styles.aceptado : styles.rechazado}`}>
+                <td className={` ${form.estado === 'PENDIENTE' ? styles.pendiente : form.estado === 'CONFIRMADO' ? styles.aceptado : styles.rechazado}`}>
   {form.estado}
 </td>
 

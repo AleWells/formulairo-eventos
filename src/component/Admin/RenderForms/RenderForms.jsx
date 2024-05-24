@@ -39,7 +39,7 @@ export default function RenderForms({ allForms, handleView }) {
                                     <Button onClick={() => { handleView(form.id); }}>Abrir</Button>
                                 </TableCell>
                                 <TableCell>
-                                    {form.estado === "PENDIENTE" ? <Button onClick={()=>{handleConfirmEvent(form)}}>Aceptar</Button> : "Aceptado"}
+                                    {form.estado === "PENDIENTE" ? <Button onClick={()=>{handleConfirmEvent(form)}}>Aceptar</Button> : "CANCELAR"}
                                 </TableCell>
                             </TableRow>
                         ))}

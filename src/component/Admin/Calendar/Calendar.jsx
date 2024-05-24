@@ -51,7 +51,7 @@ export default function Calendar({ isOpen, handleClose }) {
     return (
         <React.Fragment>
             <Dialog
-                fullWidth
+                fullScreen
                 open={isOpen}
                 onClose={handleClose}
                 TransitionComponent={Transition}
@@ -73,8 +73,10 @@ export default function Calendar({ isOpen, handleClose }) {
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell style={{ fontWeight: "bold" }}>Nombre del Calendario</TableCell>
-                                <TableCell style={{ fontWeight: "bold" }}>Compartir por correo electrónico</TableCell>
+                                <TableCell >Nombre del Calendario</TableCell>
+                                <TableCell >Compartir por correo electrónico</TableCell>
+                                <TableCell>Eliminar Eventos</TableCell>
+                                
                             </TableRow>
                         </TableHead>
                         <TableBody>
@@ -107,6 +109,7 @@ export default function Calendar({ isOpen, handleClose }) {
                                     />
                                     <Button style={{ marginTop: 10 }} variant="contained" onClick={handleAddEmail}>Agregar</Button>
                                 </TableCell>
+                                <TableCell><Button>Eliminar</Button></TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>

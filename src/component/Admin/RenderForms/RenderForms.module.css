@@ -62,7 +62,7 @@
     color: orange !important; /* Color naranja para estado "PENDIENTE" */
 }
 
-.aceptado {
+.confirmado {
     color: green !important; /* Color verde para estado "ACEPTADO" */
 }
 
