@@ -2,13 +2,12 @@ import { Box, FormControlLabel, FormGroup, MenuItem, TextField, Typography,Check
 import { useDispatch, useSelector } from "react-redux";
 import { updateForm } from "../../../../../../redux/slice.js";
 import styles from './HomeForm.module.css'
-import ViewCalendar  from '../../../../../ViewCalendar/ViewCalendar'
 import { useEffect } from "react";
 export default function HomeForm({handle}) {
   const dispatch = useDispatch();
   const formData = useSelector((state) => state.data.form);
   const datosHome = useSelector((state)=>state.data.form.home)
-  const {user,eventosCalendarioSeleccionado} = useSelector((state)=>state.data);
+  const {user} = useSelector((state)=>state.data);
   const handleChange = (e) => {
     const { value, id } = e.target;
     dispatch(updateForm({ ...formData, home: {...formData.home,[id]: value } }));
@@ -151,21 +150,9 @@ label='Nombre del Evento'
     />
     </Box>
 
-
- 
-  
-   
-
     {todosLosCamposLlenos(datosHome) && <Box >
         <Button variant='outlined' onClick={handleButton}>Siguiente</Button>
       </Box>}
-
-
-   
-<Box  className={styles.calendar}>
-<ViewCalendar data={eventosCalendarioSeleccionado}/>
-</Box>
-
     </Box>
   );
 }
