@@ -1,6 +1,10 @@
 import io from "socket.io-client";
 // importo las alertas
-import {alertSetFormOk,alertDeleteFormPending,alertSendFormOk,alertCompartido} from './services.js'
+import {alertSetFormOk,
+  alertDeleteFormPending,
+  alertSendFormOk,
+  alertCompartido,
+  alertConfirmacionEventoOk} from './services.js'
 import {
   uploadUser,
    uploadForms,
@@ -52,7 +56,7 @@ export const listenerUser = (email,dispatch)=>{
 
     // evento confirmación de evento
     if(data.alertConfirmEvent){
-      
+      alertConfirmacionEventoOk();
     }
 
 

@@ -140,3 +140,15 @@ export function aceptarEvento(){
     cancelButtonText: 'Cancelar'
   })
 }
+
+export function alertConfirmacionEventoOk(){
+  return Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: 'Evento confirmado',
+    timerProgressBar: true,
+    showConfirmButton: false,
+    timer: 3000
+  })
+}
