@@ -6,7 +6,7 @@ export default function  Home (){
     return (
         <Box className={styles.home}>
               <Typography variant="h5">Selecionar Fecha </Typography>
-              <Typography variant='subtitle1'>Fechas  disponibles para el {form.home.lugar}</Typography>
+              <Typography variant='subtitle1'>Fechas  disponibles para : {form.home.lugar==='CampoDeporte'?'Campo de Deporte':form.home.lugar}</Typography>
              
         </Box>
     )
