@@ -3,7 +3,7 @@ import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { Box } from '@mui/material';
-
+import styles from './SelectedCalendar.module.css'
 export default function ViewCalendar({ data }) {
   const calendarRef = useRef(null);
 
@@ -15,13 +15,13 @@ export default function ViewCalendar({ data }) {
 
   const handleDateClick = (info) => {
     const calendarApi = calendarRef.current.getApi();
-    calendarApi.changeView('dayGridDay', info.dateStr);
+    console.log(info.date)
   };
 
 
 
   return (
-    <Box>
+    <Box className={styles.calendar} >
       <FullCalendar
         ref={calendarRef}
         plugins={[dayGridPlugin, interactionPlugin]}

@@ -1,6 +1,6 @@
 // Modulo para seleccionar turno y hacer ciertas verificaciones
 import { Box, Typography } from "@mui/material";
-import styles from './SeleccionarFecha.moduel.css'
+import styles from './SeleccionarFecha.module.css'
 import { useState } from "react";
 import Home from "./component/Home/Home";
 export default function SeleccionarFecha ({data}){
