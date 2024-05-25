@@ -164,3 +164,4 @@ export function  alertDeleteEventsOk (){
     timer: 3000
   })
 }
+
