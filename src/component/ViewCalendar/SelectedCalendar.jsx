@@ -7,7 +7,6 @@ import { Box } from '@mui/material';
 export default function ViewCalendar({ data }) {
   const calendarRef = useRef(null);
 
-  
   const events = data?.map(item => ({
     title: item.summary,
     start: item.start.dateTime,

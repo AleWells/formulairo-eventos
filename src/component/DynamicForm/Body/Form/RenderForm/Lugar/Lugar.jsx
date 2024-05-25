@@ -33,7 +33,7 @@ function Lugar ({handle}){
         }
        dispatch( uploadCalendarioSelecionado(calendar));
         obtenerEventos(calendar.id)
-        handle('Home');
+        handle('Fecha');
     }
     return <Box className={styles.lugar}>
 
