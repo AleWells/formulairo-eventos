@@ -6,7 +6,7 @@ import { Box } from '@mui/material';
 import styles from './SelectedCalendar.module.css';
 
 
-export default function ViewCalendar({ data }) {
+export default function ViewCalendar({ data , handleSelect }) {
   const calendarRef = useRef(null);
 
   const events = data?.map(item => ({
@@ -27,7 +27,7 @@ export default function ViewCalendar({ data }) {
 
       return;
     }
-    console.log(info.date);
+    handleSelect(info.date)
   };
 
   const today = new Date().toISOString().split('T')[0];
