@@ -23,7 +23,7 @@ const opcionesDeTiempo = generarOpcionesDeTiempo("08:30", "16:30", 15);
 
 export default function Hora({handleChangeSection}) {
     const dispatch = useDispatch();
-    const { form, eventosCalendarioSeleccionado } = useSelector(state => state.data);
+    const { form, allFormsCalendarioSeleccionado } = useSelector(state => state.data);
     const [horaInicio, setHoraInicio] = useState("");
     const [horaFinal, setHoraFinal] = useState("");
 
@@ -40,6 +40,16 @@ export default function Hora({handleChangeSection}) {
     const opcionesDeHoraFinal = horaInicio
         ? opcionesDeTiempo.filter(hora => hora > horaInicio)
         : [];
+
+    // se filtra formularios por fecha
+    const filtradoPorFecha = allFormsCalendarioSeleccionado.filter(item => {
+        // Obtenemos solo la parte de la fecha (YYYY-MM-DD) de item.fecha
+        const fechaItem = item.fecha.split('T')[0];
+        // Comparamos con la parte de la fecha de form.home.fecha
+        return fechaItem === form.home.fecha;
+    });
+    
+    console.log(filtradoPorFecha)
     const handleButton = ()=>{
         dispatch(updateForm({...form,home:{...form.home,horaInicio:horaInicio,horaFinal:horaFinal}}));
         handleChangeSection('Home');
