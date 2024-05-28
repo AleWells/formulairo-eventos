@@ -54,7 +54,7 @@ const {lugar} = useSelector(state=>state.data.form.home)
         {currentSection === "CampoDeporte" && <CampoDeporteForm/>}
         {currentSection === "Otro" && <Otros/>}
         {currentSection === 'Lugar' && <Lugar handle={handleChangeSection}/>} 
-        {currentSection === 'Fecha' && <SeleccionarFecha/>}
+        {currentSection === 'Fecha' && <SeleccionarFecha handle={handleChangeSection}/>}
 
         
       {currentSection !=="Home" && currentSection !=="Lugar" && currentSection !=="Fecha" &&

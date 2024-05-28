@@ -121,6 +121,7 @@ label='Nombre del Evento'
      onChange={handleChange}
      fullWidth
      required
+     disabled={true}
      />
     </Box>
     <Box  sx={{display:'flex', alignItems:'center',gap:'10px',width:'100%'}}>
@@ -134,6 +135,7 @@ label='Nombre del Evento'
     onChange={handleChange}
     fullWidth
     required
+    disabled={true}
     />
     </Box>
     <Box  sx={{display:'flex', alignItems:'center',gap:'10px',width:'100%'}}>
@@ -147,6 +149,7 @@ label='Nombre del Evento'
     onChange={handleChange}
     fullWidth
     required
+    disabled={true}
     />
     </Box>
 
