@@ -56,7 +56,7 @@ export default function Hora({ handleChangeSection }) {
             const finalMinutos = finalHH * 60 + finalMM;
         
             // Generar horarios intermedios y agregarlos al array de reservados
-            for (let minutos = inicioMinutos; minutos < finalMinutos; minutos += 15) {
+            for (let minutos = inicioMinutos; minutos <= finalMinutos; minutos += 15) {
                 const horas = String(Math.floor(minutos / 60)).padStart(2, '0');
                 const minutosStr = String(minutos % 60).padStart(2, '0');
                 const hora = `${horas}:${minutosStr}`;
@@ -92,6 +92,15 @@ export default function Hora({ handleChangeSection }) {
             if (horaOpcionDate >= horaReservadaPosteriorDate) {
                 opcion.reservado = true;
             }
+        }
+
+        // Si hay una reserva que empieza antes de la hora de inicio seleccionada y termina después de la hora opción, deshabilitar
+        const superposicionReservada = opcionesDeTiempoFiltradas.find(op => {
+            const horaReservadaDate = new Date(`1970-01-01T${op.hora}:00`);
+            return op.reservado && horaReservadaDate < horaOpcionDate;
+        });
+        if (superposicionReservada) {
+            opcion.reservado = true;
         }
 
         return opcion;
