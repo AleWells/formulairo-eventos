@@ -148,6 +148,14 @@ export const eliminarEventos = (id)=>{
 
   socket.emit('eliminarEventos',id);
 }
+// obtener todos los eventos confirmados y sin confirmar para el calendario seleccionado
+
+export const obtenerFormsCalendarioSeleccionado = (lugar)=>{
+  //obtener los  formularios ya sea reservados o no de la base de datos.
+  // sólo los pendientess y confirmados, no los cancelados
+socket.emit('getFormsCalendarioSeleccionado',lugar);
+}
+
 
 // export const listenerForms = (dispatch,action)=>{
 //   socket.on('forms',(value)=>{

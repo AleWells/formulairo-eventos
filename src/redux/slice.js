@@ -4,6 +4,7 @@ const initialState = {
   user: null,
   forms:null,
   form: estructuraFormulario,
+  allFormsCalendarioSeleccionado:null,
   allForms:null,
   calendarios:null,
   calendarioSelecionado:null,
@@ -35,6 +36,9 @@ export const stateSlice = createSlice({
     },
     uploadEventosCalendarioSeleccionado:(state,action)=>{
       state.eventosCalendarioSeleccionado = action.payload
+    },
+    uploadAllFormsCalendarioSeleccionado:(state,action)=>{
+      state.allFormsCalendarioSeleccionado = action.payload
     }
   },
 })
@@ -48,6 +52,7 @@ export const {
   uploadCalendario,
   uploadCalendarioSelecionado ,
   uploadAllForms,
-  uploadEventosCalendarioSeleccionado
+  uploadEventosCalendarioSeleccionado,
+  uploadAllFormsCalendarioSeleccionado
 } = stateSlice.actions
 export default stateSlice.reducer

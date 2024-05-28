@@ -2,7 +2,7 @@ import { Box, Typography, TextField, MenuItem , Button } from '@mui/material'
 import styles from './Lugar.module.css'
 import {useDispatch,useSelector} from 'react-redux'
 import { updateForm,uploadCalendarioSelecionado } from "../../../../../../redux/slice.js";
-import {obtenerEventos} from '../../../../../../socket.js'
+import {obtenerEventos,obtenerFormsCalendarioSeleccionado} from '../../../../../../socket.js'
 function Lugar ({handle}){
     const dispatch = useDispatch();
     const formData = useSelector((state)=>state.data.form);
@@ -31,7 +31,9 @@ function Lugar ({handle}){
           calendar = calendarios.find((el)=>el.summary ==="Teatro")
           break
         }
+        
        dispatch( uploadCalendarioSelecionado(calendar));
+       obtenerFormsCalendarioSeleccionado(lugarSeleccionado);
         obtenerEventos(calendar.id)
         handle('Fecha');
     }
