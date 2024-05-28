@@ -74,11 +74,28 @@ export default function Hora({ handleChangeSection }) {
 
     // Filtra las opciones de hora final para que solo incluyan horas posteriores a la hora de inicio
     const opcionesDeHoraFinal = horaInicio
-        ? generarOpcionesDeTiempo(horaInicio, "16:30", 15).map(hora => ({
-            hora,
-            reservado: opcionesDeTiempoFiltradas.some(opcion => opcion.hora === hora && opcion.reservado)
-        })).filter(opcion => opcion.hora > horaInicio)
+        ? generarOpcionesDeTiempo(horaInicio, "16:30", 15).map(hora => {
+            const reservado = opcionesDeTiempoFiltradas.some(opcion => opcion.hora === hora && opcion.reservado);
+            return { hora, reservado };
+        }).filter(opcion => opcion.hora > horaInicio)
         : [];
+
+    // Deshabilita horas finales si hay un horario reservado después de la hora de inicio seleccionada
+    const opcionesDeHoraFinalFiltradas = opcionesDeHoraFinal.map(opcion => {
+        const horaInicioDate = new Date(`1970-01-01T${horaInicio}:00`);
+        const horaOpcionDate = new Date(`1970-01-01T${opcion.hora}:00`);
+
+        // Busca la primera hora reservada después de la hora de inicio seleccionada
+        const horaReservadaPosterior = opcionesDeTiempoFiltradas.find(op => op.hora > horaInicio && op.reservado);
+        if (horaReservadaPosterior) {
+            const horaReservadaPosteriorDate = new Date(`1970-01-01T${horaReservadaPosterior.hora}:00`);
+            if (horaOpcionDate >= horaReservadaPosteriorDate) {
+                opcion.reservado = true;
+            }
+        }
+
+        return opcion;
+    });
 
     const handleButton = () => {
         dispatch(updateForm({ ...form, home: { ...form.home, horaInicio: horaInicio, horaFinal: horaFinal } }));
@@ -114,7 +131,7 @@ export default function Hora({ handleChangeSection }) {
                     fullWidth
                     disabled={!horaInicio}
                 >
-                    {opcionesDeHoraFinal.map((opcion, index) => (
+                    {opcionesDeHoraFinalFiltradas.map((opcion, index) => (
                         <MenuItem key={index} value={opcion.hora} disabled={opcion.reservado}>
                             {opcion.hora}
                         </MenuItem>
