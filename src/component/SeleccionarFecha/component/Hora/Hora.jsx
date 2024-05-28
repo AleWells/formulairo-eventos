@@ -34,20 +34,17 @@ export default function Hora({ handleChangeSection }) {
         setHoraFinal(event.target.value);
     };
 
-    // Filtra las opciones de hora final para que solo incluyan horas posteriores a la hora de inicio
-    const opcionesDeHoraFinal = horaInicio
-        ? generarOpcionesDeTiempo(horaInicio, "16:30", 15).filter(hora => hora > horaInicio)
-        : [];
-
-    // Se filtra formularios por fecha
+    // Genera todas las opciones de tiempo posibles
     let opcionesDeTiempoFiltradas = generarOpcionesDeTiempo("08:30", "16:30", 15);
 
+    // Filtra los formularios por fecha
     if (allFormsCalendarioSeleccionado) {
         const filtradoPorFecha = allFormsCalendarioSeleccionado.filter(item => {
             const fechaItem = item.fecha.split('T')[0];
             return fechaItem === form.home.fecha;
         });
 
+        // Recolecta los horarios reservados
         const horariosReservados = filtradoPorFecha.reduce((reservados, formulario) => {
             const horaInicio = formulario.horaInicio.split('T')[1].slice(0, 5); // Extraer solo la hora de inicio sin la fecha
             const horaFinal = formulario.horaFinal.split('T')[1].slice(0, 5); // Extraer solo la hora final sin la fecha
@@ -68,11 +65,20 @@ export default function Hora({ handleChangeSection }) {
             return reservados;
         }, []);
 
+        // Marca las opciones de tiempo como reservadas si están en horariosReservados
         opcionesDeTiempoFiltradas = opcionesDeTiempoFiltradas.map(hora => ({
             hora,
             reservado: horariosReservados.includes(hora)
         }));
     }
+
+    // Filtra las opciones de hora final para que solo incluyan horas posteriores a la hora de inicio
+    const opcionesDeHoraFinal = horaInicio
+        ? generarOpcionesDeTiempo(horaInicio, "16:30", 15).map(hora => ({
+            hora,
+            reservado: opcionesDeTiempoFiltradas.some(opcion => opcion.hora === hora && opcion.reservado)
+        })).filter(opcion => opcion.hora > horaInicio)
+        : [];
 
     const handleButton = () => {
         dispatch(updateForm({ ...form, home: { ...form.home, horaInicio: horaInicio, horaFinal: horaFinal } }));
@@ -109,8 +115,8 @@ export default function Hora({ handleChangeSection }) {
                     disabled={!horaInicio}
                 >
                     {opcionesDeHoraFinal.map((opcion, index) => (
-                        <MenuItem key={index} value={opcion}>
-                            {opcion}
+                        <MenuItem key={index} value={opcion.hora} disabled={opcion.reservado}>
+                            {opcion.hora}
                         </MenuItem>
                     ))}
                 </TextField>
