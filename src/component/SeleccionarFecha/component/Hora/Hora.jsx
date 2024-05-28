@@ -94,18 +94,9 @@ export default function Hora({ handleChangeSection }) {
             }
         }
 
-        // Si hay una reserva que empieza antes de la hora de inicio seleccionada y termina después de la hora opción, deshabilitar
-        const superposicionReservada = opcionesDeTiempoFiltradas.find(op => {
-            const horaReservadaDate = new Date(`1970-01-01T${op.hora}:00`);
-            return op.reservado && horaReservadaDate < horaOpcionDate;
-        });
-        if (superposicionReservada) {
-            opcion.reservado = true;
-        }
-
         return opcion;
     });
-
+    
     const handleButton = () => {
         dispatch(updateForm({ ...form, home: { ...form.home, horaInicio: horaInicio, horaFinal: horaFinal } }));
         handleChangeSection('Home');
