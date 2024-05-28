@@ -25,7 +25,8 @@ export default function RenderCompleteForm ({form}){
         <Typography variant='body2'><strong>Nombre:</strong> {home.nombreEvento}</Typography>
         <Typography variant='body2'><strong>Sector:</strong> {home.sector}</Typography>
         <Typography variant='body2'><strong>Fecha:</strong> {home.fecha}</Typography>
-        <Typography variant='body2'><strong>Horario:</strong> {home.hora}</Typography>
+        <Typography variant='body2'><strong>Horario Inicio:</strong> {home.horaInicio}</Typography>
+        <Typography variant='body2'><strong>Horario Final:</strong> {home.horaFinal}</Typography>
         <Typography variant='body2'><strong>Lugar:</strong> {home.lugar}</Typography>
         </Box>
  

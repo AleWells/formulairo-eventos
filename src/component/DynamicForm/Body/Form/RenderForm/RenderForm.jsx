@@ -5,6 +5,7 @@ import TeatroForm from './TeatroForm/TeatroForm.jsx';
 import HomeForm from './HomeForm/HomeForm.jsx';
 import Otros from './Otro/Otro.jsx'
 import Lugar from "./Lugar/Lugar.jsx";
+import SeleccionarFecha from "../../../../SeleccionarFecha/SeleccionarFecha.jsx";
 import styles from './RenderForm.module.css';
 import {  useState } from "react";
 import { useSelector } from "react-redux";
@@ -53,10 +54,10 @@ const {lugar} = useSelector(state=>state.data.form.home)
         {currentSection === "CampoDeporte" && <CampoDeporteForm/>}
         {currentSection === "Otro" && <Otros/>}
         {currentSection === 'Lugar' && <Lugar handle={handleChangeSection}/>} 
-
+        {currentSection === 'Fecha' && <SeleccionarFecha/>}
 
         
-      {currentSection !=="Home" && currentSection !=="Lugar" &&
+      {currentSection !=="Home" && currentSection !=="Lugar" && currentSection !=="Fecha" &&
        <Box sx={{ display: 'flex', justifyContent: 'center' ,margin:'20px',gap:'20px'}}>
         <Button onClick={handleVolver} variant='outlined'>VOLVER</Button>
        <Button type='submit' variant='contained'>Enviar</Button>
