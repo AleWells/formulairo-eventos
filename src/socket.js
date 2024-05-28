@@ -12,6 +12,7 @@ import {
     uploadCalendario,
     uploadCalendarioSelecionado,
     uploadEventosCalendarioSeleccionado,
+  uploadAllFormsCalendarioSeleccionado,
     uploadAllForms} from './redux/slice.js'
 import { identity } from "@fullcalendar/core/internal";
 let socket;
@@ -103,14 +104,16 @@ export const listenerCalendar = (dispatch)=>{
      }else{
       dispatch(uploadEventosCalendarioSeleccionado(null));
      }
-     
-
     }
     if(data.listadoRegistros){
       dispatch(uploadAllForms(data.listadoRegistros))
     }
     if(data.alertDeleteEventsOk){
       alertDeleteEventsOk();
+    }
+    if(data.formsCalendarioSeleccionado){
+      dispatch(uploadAllFormsCalendarioSeleccionado(data.formsCalendarioSeleccionado));
+      
     }
   
   })
@@ -155,6 +158,7 @@ export const obtenerFormsCalendarioSeleccionado = (lugar)=>{
   // sólo los pendientess y confirmados, no los cancelados
 socket.emit('getFormsCalendarioSeleccionado',lugar);
 }
+
 
 
 // export const listenerForms = (dispatch,action)=>{
