@@ -25,7 +25,7 @@ export default function SeleccionarFecha ({handle}){
     }
     return(
         <Box>
-           {selectedComponent==='FECHA'&&<Fecha setFechaSelec={setFechaSelec} />}
+           {selectedComponent==='FECHA'&&<Fecha da setFechaSelec={setFechaSelec} />}
            {selectedComponent==='HORA'&&<Hora handleChangeSection={handle}/>} 
         </Box>
     )

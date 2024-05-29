@@ -10,9 +10,9 @@ export default function ViewCalendar({ data , handleSelect }) {
   const calendarRef = useRef(null);
 
   const events = data?.map(item => ({
-    title: item.summary,
-    start: item.start.dateTime,
-    end: item.end.dateTime,
+    title: item.nameEvento,
+    start: item.horaInicio,
+    end: item.horaFinal,
   }));
 
   const handleDateClick = (info) => {
