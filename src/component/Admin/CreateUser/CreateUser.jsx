@@ -30,7 +30,7 @@ export default function  CreateUser ({isOpen,handleClose}){
            
     </Toolbar>
         </AppBar>  
-    <FormCreateUser/>
+    <FormCreateUser handleClose={handleClose}/>
     </Dialog>
    </React.Fragment>
 }

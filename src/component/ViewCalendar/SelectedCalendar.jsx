@@ -14,8 +14,9 @@ export default function ViewCalendar({ data , handleSelect }) {
     start: item.horaInicio,
     end: item.horaFinal,
   }));
-
+ 
   const handleDateClick = (info) => {
+   
     const today = new Date().toISOString().split('T')[0];
     const dayOfWeek = info.date.getUTCDay();
     if (info.dateStr < today) {
@@ -24,12 +25,11 @@ export default function ViewCalendar({ data , handleSelect }) {
     }
     if (dayOfWeek === 0 || dayOfWeek === 6) {
       alert("⚠️ No se puede seleccionar un fin de semana !","Error");
-
       return;
     }
     handleSelect(info.date)
   };
-
+ 
   const today = new Date().toISOString().split('T')[0];
 
   return (

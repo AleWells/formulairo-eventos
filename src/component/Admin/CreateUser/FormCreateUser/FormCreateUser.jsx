@@ -1,31 +1,76 @@
 import { useState } from 'react'; // Importar el hook useState
 import styles from './FormCreateUser.module.css';
 import { TextField, Box, Typography, Button } from "@mui/material";
-import {apiCalendar} from '../../../../socket'
-const FormCreateUser = () => {
-  // Definir el estado inicial para los campos del formulario
+import { setUser } from '../../../../firebase/auth_signup_password';
+import {alertPending} from '../../../../services'
+const FormCreateUser = ({handleClose}) => {
+  // Definir el estado inicial para los campos del formulario y los errores
   const [formData, setFormData] = useState({
     nombreCompleto: '',
     email: '',
     password: '',
     password2: ''
   });
+  const [errors, setErrors] = useState({
+    nombreCompleto: '',
+    email: '',
+    password: '',
+    password2: ''
+  });
 
-  // Función para manejar cambios en los campos del formulario
+  // Función para manejar cambios en los campos del formulario y verificar errores
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
       [id]: value
     }));
+
+    // Verificar errores de contraseña
+    if (id === 'password2') {
+      if (value !== formData.password) {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          password2: 'Las contraseñas no coinciden'
+        }));
+      } else {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          password2: ''
+        }));
+      }
+    }
+
+    // Verificar errores de correo electrónico
+    if (id === 'email') {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(value)) {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          email: 'El correo electrónico no es válido'
+        }));
+      } else {
+        setErrors(prevErrors => ({
+          ...prevErrors,
+          email: ''
+        }));
+      }
+    }
   };
 
   // Función para manejar el envío del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes enviar formData a una función para manejarlo, como enviarlo al backend, por ejemplo
-    console.log('Datos del formulario:', formData);
-    apiCalendar();
+    // Verificar si hay errores
+    if (Object.values(errors).every(error => error === '') &&
+        Object.values(formData).every(value => value !== '')) {
+      // Aquí puedes enviar formData a una función para manejarlo, como enviarlo al backend, por ejemplo
+      setUser(formData); // Por ejemplo, enviar los datos al backend
+      handleClose(false);   
+      alertPending();    
+    } else {
+      console.log('Error en el formulario');
+    }
   };
 
   return (
@@ -38,8 +83,10 @@ const FormCreateUser = () => {
         type='text'
         variant="standard"
         required
-        value={formData.nombreCompleto} // Establecer el valor del campo desde el estado
-        onChange={handleChange} // Manejar cambios en el campo
+        value={formData.nombreCompleto}
+        onChange={handleChange}
+        error={errors.nombreCompleto !== ''}
+        helperText={errors.nombreCompleto}
       />
       <TextField
         fullWidth
@@ -50,6 +97,8 @@ const FormCreateUser = () => {
         required
         value={formData.email}
         onChange={handleChange}
+        error={errors.email !== ''}
+        helperText={errors.email}
       />
 
       <TextField
@@ -61,6 +110,8 @@ const FormCreateUser = () => {
         required
         value={formData.password}
         onChange={handleChange}
+        error={errors.password !== ''}
+        helperText={errors.password}
       />
       <TextField
         fullWidth
@@ -71,6 +122,8 @@ const FormCreateUser = () => {
         required
         value={formData.password2}
         onChange={handleChange}
+        error={errors.password2 !== ''}
+        helperText={errors.password2}
       />
 
       <Button type='submit' variant='contained'>CREAR</Button>
