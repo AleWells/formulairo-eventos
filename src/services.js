@@ -165,3 +165,27 @@ export function  alertDeleteEventsOk (){
   })
 }
 
+export function alertSuccess (text){
+  return Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: text,
+    timerProgressBar: true,
+    showConfirmButton: false,
+    timer: 3000
+  })
+}
+
+
+export function alertError(text){
+  return Swal.fire({
+    toast:true,
+    position:'top-end',
+    icon:'error',
+    title:text,
+    timerProgressBar: true,
+    showConfirmButton: false,
+    timer: 5000
+  })
+}

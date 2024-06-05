@@ -5,7 +5,10 @@ import {alertSetFormOk,
   alertDeleteFormPending,
   alertSendFormOk,
   alertCompartido,
-  alertConfirmacionEventoOk} from './services.js'
+  alertConfirmacionEventoOk,
+  alertSuccess,
+  alertError
+} from './services.js'
 import {
   uploadUser,
    uploadForms,
@@ -76,7 +79,15 @@ export const listenerAlerts = ()=>{
      
       alertCompartido();
     }
-
+    if(data.alertUserCreated){
+      alertSuccess("Usuario creado correctamente.");
+    }
+    if(data.alertUserNotCreated){
+      alertError(data.alertUserNotCreated.message);
+    }
+    if(data.alertUserExists){
+      alertError('El usuario ya existe');
+    }
   });
 }
 
@@ -91,6 +102,8 @@ export const apiCalendar = ()=>{
 
 
 // Listener para los eventos de calendario que manda el servidor
+// Este evento apiCalendar lo uso para otras cosas  que no tiene que ver con los calendarios 
+// Luego lo modificaremos.
 
 export const listenerCalendar = (dispatch)=>{
   socket.on("apiCalendar",(data)=>{
@@ -115,6 +128,7 @@ export const listenerCalendar = (dispatch)=>{
       dispatch(uploadAllFormsCalendarioSeleccionado(data.formsCalendarioSeleccionado));
       
     }
+   
   
   })
 }
@@ -180,7 +194,7 @@ export const deleteFormPending = (id,user)=>{
 export const updateForm = ({id,form,user})=>{
   socket.emit('updateForm',{id,form,user})
   }
-export const createUser = (email,name)=>{
-  socket.emit('createUser',{email,name})
+export const createUser = (email,name,password)=>{
+  socket.emit('createUser',{email,name,password})
 }
 

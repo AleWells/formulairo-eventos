@@ -19,7 +19,7 @@ export function authListener(dispatch){
           listenerCalendar(dispatch);
           listenerAlerts();
           // ...
-        } else {s
+        } else {
           // User is signed out
           // ...
          console.log("usuario desconectado")

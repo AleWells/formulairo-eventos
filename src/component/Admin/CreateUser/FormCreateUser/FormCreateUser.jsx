@@ -1,8 +1,8 @@
 import { useState } from 'react'; // Importar el hook useState
 import styles from './FormCreateUser.module.css';
 import { TextField, Box, Typography, Button } from "@mui/material";
-import { setUser } from '../../../../firebase/auth_signup_password';
 import {alertPending} from '../../../../services'
+import { createUser } from '../../../../socket';
 const FormCreateUser = ({handleClose}) => {
   // Definir el estado inicial para los campos del formulario y los errores
   const [formData, setFormData] = useState({
@@ -65,7 +65,7 @@ const FormCreateUser = ({handleClose}) => {
     if (Object.values(errors).every(error => error === '') &&
         Object.values(formData).every(value => value !== '')) {
       // Aquí puedes enviar formData a una función para manejarlo, como enviarlo al backend, por ejemplo
-      setUser(formData); // Por ejemplo, enviar los datos al backend
+      createUser(formData.email,formData.nombreCompleto,formData.password);
       handleClose(false);   
       alertPending();    
     } else {
