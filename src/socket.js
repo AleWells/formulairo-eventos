@@ -85,9 +85,6 @@ export const listenerAlerts = ()=>{
     if(data.alertUserNotCreated){
       alertError(data.alertUserNotCreated.message);
     }
-    if(data.alertUserExists){
-      alertError('El usuario ya existe');
-    }
   });
 }
 
