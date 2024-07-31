@@ -7,6 +7,7 @@ export function login( email, password){
     // Signed in 
     const user = userCredential.user;
     alertSingInSuccessPassword(user);
+   
     // ...
   })
   .catch((error) => {

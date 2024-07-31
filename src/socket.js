@@ -16,6 +16,7 @@ import {
     uploadCalendarioSelecionado,
     uploadEventosCalendarioSeleccionado,
   uploadAllFormsCalendarioSeleccionado,
+  setConnectedUser,
     uploadAllForms} from './redux/slice.js'
 import { identity } from "@fullcalendar/core/internal";
 let socket;
@@ -42,7 +43,7 @@ export const initSocket = (user)=>{
 
 
 export const listenerUser = (email,dispatch)=>{
-  
+  dispatch(setConnectedUser(true));
   socket.on(email,(data)=>{
 
     if(data.dataUser){

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { estructuraFormulario } from './service.js'
 const initialState = {
+  isUserConnected:false,
   user: null,
   forms:null,
   form: estructuraFormulario,
@@ -39,6 +40,9 @@ export const stateSlice = createSlice({
     },
     uploadAllFormsCalendarioSeleccionado:(state,action)=>{
       state.allFormsCalendarioSeleccionado = action.payload
+    },
+    setConnectedUser:(state,action)=>{
+      state.isUserConnected = action.payload
     }
   },
 })
@@ -53,6 +57,7 @@ export const {
   uploadCalendarioSelecionado ,
   uploadAllForms,
   uploadEventosCalendarioSeleccionado,
-  uploadAllFormsCalendarioSeleccionado
+  uploadAllFormsCalendarioSeleccionado,
+  setConnectedUser
 } = stateSlice.actions
 export default stateSlice.reducer

@@ -4,7 +4,7 @@ import SendIcon from '@mui/icons-material/Send';
 import {login} from '../../../firebase/auth_signin_password.js'
 import styles from './Login.module.css';
 
-export default function Login() {
+export default function Login({setUserConnected}) {
   const [usuario, setUsuario] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,7 +21,7 @@ export default function Login() {
     // Utiliza los valores de `usuario` y `password` para enviarlos correctamente
     // a la API
     
-    login(usuario,password);
+    login(usuario,password,setUserConnected);
   };
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {

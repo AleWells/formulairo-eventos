@@ -29,12 +29,10 @@ export default function Unlog(){
     setAnchorEl(null);
   };
   const {user} = useSelector(state=>state.data)
-    
   const handleOut = ()=>{
     disconect(dispatch,uploadUser);
     navigate('/')
     location.reload()
-    
   }
 
 
@@ -57,6 +55,7 @@ export default function Unlog(){
   sx={{flexDirection:'column'}}
   color='secondary' 
   onClick={handleClick}
+  
   >
     <AccountCircleIcon className={styles.icon}/>
     <Typography className={styles.textIcon}>{user && user.name}</Typography>
