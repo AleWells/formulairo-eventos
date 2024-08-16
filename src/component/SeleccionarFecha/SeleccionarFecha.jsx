@@ -15,12 +15,11 @@ export default function SeleccionarFecha ({handle}){
     // const [fechaSelec,setFechaSelec] = useState(null);
     const setFechaSelec = (date)=>{
         // validar si la fecha seleccionada es correcta
-        if(eventosCalendarioSeleccionado){
+      
+        dispatch(updateForm({...form,home:{...form.home,fecha:date.toISOString().split('T')[0]}}))
+        setSelectedComponent('HORA');
 
-        }else{
-            dispatch(updateForm({...form,home:{...form.home,fecha:date.toISOString().split('T')[0]}}))
-            setSelectedComponent('HORA');
-        }
+      
      
     }
     return(

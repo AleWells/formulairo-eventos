@@ -36,6 +36,7 @@ export default function ViewCalendar({ data }) {
           center: 'title',
           right: 'dayGridMonth,dayGridWeek,dayGridDay',
         }}
+        timeZone="UTC"
       />
     </Box>
   );

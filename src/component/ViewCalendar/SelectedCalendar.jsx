@@ -7,6 +7,7 @@ import styles from './SelectedCalendar.module.css';
 
 
 export default function ViewCalendar({ data , handleSelect }) {
+  console.log(data)
   const calendarRef = useRef(null);
 
   const events = data?.map(item => ({
@@ -16,9 +17,10 @@ export default function ViewCalendar({ data , handleSelect }) {
   }));
  
   const handleDateClick = (info) => {
-   
+  
     const today = new Date().toISOString().split('T')[0];
     const dayOfWeek = info.date.getUTCDay();
+  
     if (info.dateStr < today) {
       alert("You cannot select a past date.");
       return;
@@ -50,6 +52,7 @@ export default function ViewCalendar({ data , handleSelect }) {
           right: 'dayGridMonth,dayGridWeek,dayGridDay',
         }}
         selectable={true} // Habilita la selección de fechas
+         timeZone="UTC"
       />
     </Box>
   );
