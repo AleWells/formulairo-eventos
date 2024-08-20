@@ -25,7 +25,7 @@ export default function RenderForms({ allForms, handleView }) {
                             <TableCell className={styles.whiteText}>Fecha</TableCell>
                             <TableCell className={styles.whiteText}>Estado</TableCell>
                             <TableCell className={styles.whiteText}>Formulario</TableCell>
-                            <TableCell className={styles.whiteText}>Acciónes</TableCell>
+                            <TableCell className={styles.whiteText}>Confirmar</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -39,7 +39,7 @@ export default function RenderForms({ allForms, handleView }) {
                                     <Button onClick={() => { handleView(form.id); }}>Abrir</Button>
                                 </TableCell>
                                 <TableCell>
-                                    {form.estado === "PENDIENTE" ? <Button onClick={()=>{handleConfirmEvent(form)}}>Aceptar</Button> : "CANCELAR"}
+                                    {form.estado === "PENDIENTE" ? <Button onClick={()=>{handleConfirmEvent(form)}}>Aceptar</Button> : <Button disabled={true}>ACEPTAR</Button>}
                                 </TableCell>
                             </TableRow>
                         ))}
