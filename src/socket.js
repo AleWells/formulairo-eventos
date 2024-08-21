@@ -163,6 +163,13 @@ export const eliminarEventos = (id)=>{
 
   socket.emit('eliminarEventos',id);
 }
+// eliminar  un evento no confirmado y en caso de estar confirmado eliminarlo tambien del calendario.
+export const eliminarEvento = (idEvento)=>{
+  // Se debe verificar el estado del evento y en base a eso se cancela.
+  console.log("se cancela evento id:"+idEvento)
+  socket.emit('eliminarEvento',idEvento);
+}
+
 // obtener todos los eventos confirmados y sin confirmar para el calendario seleccionado
 
 export const obtenerFormsCalendarioSeleccionado = (lugar)=>{

@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button } from '@mui/material';
 import styles from './RenderForms.module.css'; // Importamos el CSS
 import {aceptarEvento,alertPending} from '../../../services'
-import {confirmEvent} from '../../../socket'
+import {confirmEvent,eliminarEvento} from '../../../socket'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import IconButton from '@mui/material/IconButton';
 export default function RenderForms({ allForms, handleView }) {
@@ -14,6 +14,9 @@ export default function RenderForms({ allForms, handleView }) {
                 confirmEvent(form);
             }
         });
+    }
+    const handleDelete = (id)=>{
+        eliminarEvento(id)
     }
     return (
         <Box className={styles.tablecontainer}> {/* Agregamos la clase del contenedor */}
@@ -45,7 +48,7 @@ export default function RenderForms({ allForms, handleView }) {
                                     {form.estado === "PENDIENTE" ? <Button onClick={()=>{handleConfirmEvent(form)}}>Aceptar</Button> : <Button disabled={true}>ACEPTAR</Button>}
                                 </TableCell>
                                 <TableCell>
-                                <IconButton>
+                                <IconButton onClick={()=>{handleDelete(form.id)}}>
 
                                         <DeleteForeverIcon  color='primary'/>
                                 </IconButton>
