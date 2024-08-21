@@ -3,6 +3,8 @@ import { Box, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, 
 import styles from './RenderForms.module.css'; // Importamos el CSS
 import {aceptarEvento,alertPending} from '../../../services'
 import {confirmEvent} from '../../../socket'
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import IconButton from '@mui/material/IconButton';
 export default function RenderForms({ allForms, handleView }) {
     const handleConfirmEvent = (form)=>{
         aceptarEvento().then((result)=>{
@@ -26,6 +28,7 @@ export default function RenderForms({ allForms, handleView }) {
                             <TableCell className={styles.whiteText}>Estado</TableCell>
                             <TableCell className={styles.whiteText}>Formulario</TableCell>
                             <TableCell className={styles.whiteText}>Confirmar</TableCell>
+                            <TableCell className={styles.whiteText}>Cancelar</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -40,6 +43,13 @@ export default function RenderForms({ allForms, handleView }) {
                                 </TableCell>
                                 <TableCell>
                                     {form.estado === "PENDIENTE" ? <Button onClick={()=>{handleConfirmEvent(form)}}>Aceptar</Button> : <Button disabled={true}>ACEPTAR</Button>}
+                                </TableCell>
+                                <TableCell>
+                                <IconButton>
+
+                                        <DeleteForeverIcon  color='primary'/>
+                                </IconButton>
+                                    
                                 </TableCell>
                             </TableRow>
                         ))}
