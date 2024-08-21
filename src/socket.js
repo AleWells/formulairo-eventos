@@ -2,7 +2,7 @@ import io from "socket.io-client";
 // importo las alertas
 import {alertSetFormOk,
   alertDeleteEventsOk,
-  alertDeleteFormPending,
+  alertCancelEvent,
   alertSendFormOk,
   alertCompartido,
   alertConfirmacionEventoOk,
@@ -65,6 +65,7 @@ export const listenerUser = (email,dispatch)=>{
     if(data.alertConfirmEvent){
       alertConfirmacionEventoOk();
     }
+  
 
 
   })
@@ -126,7 +127,9 @@ export const listenerCalendar = (dispatch)=>{
       dispatch(uploadAllFormsCalendarioSeleccionado(data.formsCalendarioSeleccionado));
       
     }
-   
+    if(data.alertCancelEvent){
+      alertCancelEvent();
+    }
   
   })
 }

@@ -79,12 +79,12 @@ export function alertSingInSuccessPassword(){
   })
 }
 
-export function alertDeleteFormPending(){
+export function alertCancelEvent(){
   return Swal.fire({
     toast:true,
     position:'top-end',
     icon:'success',
-    title:'Se eliminó formulario pendiente',
+    title:'Se canceló el evento  correctamente',
     timerProgressBar: true,
     showConfirmButton: false,
     timer: 3000
