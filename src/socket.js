@@ -87,6 +87,9 @@ export const listenerAlerts = ()=>{
     if(data.alertUserNotCreated){
       alertError(data.alertUserNotCreated.message);
     }
+    if(data.CancelledEventAlert){
+      alertError(data.CancelledEventAlert);
+    }
   });
 }
 
