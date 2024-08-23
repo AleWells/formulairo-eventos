@@ -16,7 +16,8 @@ export default function RenderForms({ allForms, handleView }) {
         });
     }
     const handleDelete = (id)=>{
-        eliminarEvento(id)
+        alertPending();
+        eliminarEvento(id);
     }
     return (
         <Box className={styles.tablecontainer}> {/* Agregamos la clase del contenedor */}
